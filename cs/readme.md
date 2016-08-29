@@ -1,7 +1,7 @@
 ﻿# `C#`
 
 Training exercises and katas in C#. There is a single `katas.sln` created with separate folders and namespaces for each kata.
-| `Nu
+
 The solution is targeted for .NET 4.0 and will work with Visual Studio 2013 or 2015.
 
 ## Dependencies

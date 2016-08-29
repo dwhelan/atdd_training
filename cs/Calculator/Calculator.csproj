@@ -58,12 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Features\Add.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Add.feature.cs</LastGenOutput>
     </None>
-    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
