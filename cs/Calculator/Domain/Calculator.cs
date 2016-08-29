@@ -4,18 +4,17 @@ namespace Calculator.Domain
 {
     public class Calculator
     {
-        public List<int> Operands { get; } = new List<int>();
+        private readonly List<int> operands = new List<int>();
+        public int Result { get; set; }
 
         public void Push(int number)
         {
-            Operands.Add(number);
+            operands.Add(number);
         }
 
         internal void Add()
         {
-            Result = Operands[0] + Operands[1];
+            Result = operands[0] + operands[1];
         }
-
-        public int Result { get; set; }
     }
 }
