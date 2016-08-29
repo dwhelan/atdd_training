@@ -11,11 +11,10 @@ All dependencies are resolved using NuGet.
 Acceptances tests use [SpecFlow](http://www.specflow.org/) `v1.9.0` with
 [NUnit](http://www.nunit.org/) `v3.0.0`.
 
-These can be installed via the 
-`Tools` | `NuGet Package Manager` | `Manage NuGet Packages for Solution` for VS 2015.
+For VS 2015, these can be installed via the 
+`Tools` | `NuGet Package Manager` | `Manage NuGet Packages for Solution`.
 
-
-For VS 2013 Run `Tools` | `NuGet Package Manager` | `Packages Manager Console` and enter the following:
+For VS 2013, run `Tools` | `NuGet Package Manager` | `Packages Manager Console` and enter the following:
 
 ```
 PM> Install-Package NUnit -Version 3.0.0
