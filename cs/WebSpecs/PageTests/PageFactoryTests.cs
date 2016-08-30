@@ -1,7 +1,8 @@
 using Coypu;
 using NUnit.Framework;
+using WebSpecs.Pages;
 
-namespace WebSpecs.Pages
+namespace WebSpecs.PageTests
 {
     public class TestPage : Page
     {
@@ -20,16 +21,16 @@ namespace WebSpecs.Pages
         [Test]
         public void Should_register_pages()
         {
-            Factory.Instance.Register<TestPage>(TestPage.AppHost);
+            PageFactory.Instance.Register<TestPage>(TestPage.AppHost);
             try
             {
-                page = Factory.Instance.CreatePage("test.com", new SessionConfiguration());
+                page = PageFactory.Instance.CreatePage("test.com", new SessionConfiguration());
                 Assert.That(page, Is.InstanceOf(typeof(TestPage)));
             }
             finally
             {
                 page.Dispose();
-                Factory.Instance.UnRegister(TestPage.AppHost);
+                PageFactory.Instance.UnRegister(TestPage.AppHost);
             }
         }
     }

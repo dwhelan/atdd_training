@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace WebSpecs
+namespace WebSpecs.PageTests
 {
     using TechTalk.SpecFlow;
     

@@ -1,7 +1,8 @@
 using Coypu;
 using NUnit.Framework;
+using WebSpecs.Pages;
 
-namespace WebSpecs.Pages
+namespace WebSpecs.PageTests
 {
     [TestFixture]
     public class GooglePageTests

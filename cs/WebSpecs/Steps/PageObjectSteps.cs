@@ -5,7 +5,7 @@ using NUnit.Framework;
 using TechTalk.SpecFlow;
 using WebSpecs.Pages;
 
-namespace WebSpecs
+namespace WebSpecs.Steps
 {
     [Binding]
     public class Hooks
@@ -20,7 +20,7 @@ namespace WebSpecs
         [BeforeTestRun]
         public static void RegisterPages()
         {
-            Factory.Instance.Register<GooglePage>(GooglePage.AppHost);
+            PageFactory.Instance.Register<GooglePage>(GooglePage.AppHost);
         }
 
         [AfterScenario]
@@ -64,6 +64,12 @@ namespace WebSpecs
             page.Visit(uri.PathAndQuery);
         }
 
+        [Then(@"the page title should be ""(.*)""")]
+        public void ThenThePageTitleShouldBe(string title)
+        {
+            Assert.That(page.Title, Is.EqualTo(title));
+        }
+
         private void CreatePage(Uri uri)
         {
             var configuration = new SessionConfiguration
@@ -78,15 +84,10 @@ namespace WebSpecs
             }
             catch (ObjectContainerException)
             {
-                page = Factory.Instance.CreatePage(uri.Host, configuration);
+                page = PageFactory.Instance.CreatePage(uri.Host, configuration);
                 objectContainer.RegisterInstanceAs<Page>(page, uri.Host);
             }
         }
 
-        [Then(@"the page title should be ""(.*)""")]
-        public void ThenThePageTitleShouldBe(string title)
-        {
-            Assert.That(page.Title, Is.EqualTo(title));
-        }
     }
 }

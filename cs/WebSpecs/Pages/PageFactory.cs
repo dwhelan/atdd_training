@@ -4,13 +4,13 @@ using Coypu;
 
 namespace WebSpecs.Pages
 {
-    public class Factory
+    public class PageFactory
     {
-        public static Factory Instance { get { return instance; } }
+        public static PageFactory Instance { get { return instance; } }
 
-        private static readonly Factory instance = new Factory();
+        private static readonly PageFactory instance = new PageFactory();
 
-        private Factory() { }
+        private PageFactory() { }
 
         static Dictionary<string, Type> registeredPages = new Dictionary<string, Type>();
 
