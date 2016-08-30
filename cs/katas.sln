@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{56CCBD20-8
 		readme.md = readme.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSpecs", "WebSpecs\WebSpecs.csproj", "{7DA90E0D-875C-4FFA-A7DE-A463801A588D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{779554D8-9A4C-4BCD-AA09-C7FA50F3AF9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{779554D8-9A4C-4BCD-AA09-C7FA50F3AF9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{779554D8-9A4C-4BCD-AA09-C7FA50F3AF9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DA90E0D-875C-4FFA-A7DE-A463801A588D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DA90E0D-875C-4FFA-A7DE-A463801A588D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DA90E0D-875C-4FFA-A7DE-A463801A588D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DA90E0D-875C-4FFA-A7DE-A463801A588D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
