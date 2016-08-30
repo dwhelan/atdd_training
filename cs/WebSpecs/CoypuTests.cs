@@ -1,4 +1,6 @@
 ﻿using Coypu;
+using Coypu.Drivers;
+using Coypu.Drivers.Watin;
 using NUnit.Framework;
 
 namespace WebSpecs
@@ -21,42 +23,42 @@ namespace WebSpecs
         [Test]
         public void Default()
         {
-            TestGoogleSearch(); ;
+            TestGoogleSearch();
         }
 
         [Test]
         public void Firefox35()
         {
-            sessionConfiguration.Browser = Coypu.Drivers.Browser.Firefox;
+            sessionConfiguration.Browser = Browser.Firefox;
             TestGoogleSearch();
         }
 
         [Test]
         public void InernetExplorer()
         {
-            sessionConfiguration.Browser = Coypu.Drivers.Browser.InternetExplorer;
+            sessionConfiguration.Browser = Browser.InternetExplorer;
             TestGoogleSearch();
         }
 
         [Test, RequiresSTA]
         public void InernetExplorer_with_WatiN()
         {
-            sessionConfiguration.Driver = typeof(Coypu.Drivers.Watin.WatiNDriver);
-            sessionConfiguration.Browser = Coypu.Drivers.Browser.InternetExplorer;
+            sessionConfiguration.Driver = typeof(WatiNDriver);
+            sessionConfiguration.Browser = Browser.InternetExplorer;
             TestGoogleSearch();
         }
 
         [Test]
         public void Chrome()
         {
-            sessionConfiguration.Browser = Coypu.Drivers.Browser.Chrome;
+            sessionConfiguration.Browser = Browser.Chrome;
             TestGoogleSearch();
         }
 
         [Test]
         public void Phantomjs()
         {
-            sessionConfiguration.Browser = Coypu.Drivers.Browser.PhantomJS;
+            sessionConfiguration.Browser = Browser.PhantomJS;
             TestGoogleSearch();
         }
 
@@ -64,6 +66,7 @@ namespace WebSpecs
         {
             browser = new BrowserSession(sessionConfiguration);
             browser.Visit("/");
+            Assert.That(browser.Title, Is.EqualTo("Google"));
         }
 
         [TearDown]

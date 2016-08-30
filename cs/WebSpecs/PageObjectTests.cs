@@ -34,15 +34,25 @@ namespace WebSpecs
     [TestFixture]
     public class PageObjectTests
     {
-        private BrowserSession browser;
+        private GooglePage page;
+
+        [TestFixtureSetUp]
+        public void CreatePage()
+        {
+            page = new GooglePage(new SessionConfiguration());
+        }
 
         [Test]
         public void Should_be_able_to_create_a_page_object()
         {
-            browser = new BrowserSession(new SessionConfiguration {AppHost = "google.com"});
-            var page = new GooglePage(browser);
             page.Visit("/");
             Assert.That(page.Title, Is.EqualTo("Google"));
+        }
+
+        [TestFixtureTearDown]
+        public void DisposePage()
+        {
+            page.Dispose();
         }
     }
 
@@ -50,9 +60,10 @@ namespace WebSpecs
     {
         private readonly BrowserSession browser;
 
-        public GooglePage(BrowserSession browser)
+        public GooglePage(SessionConfiguration confguration)
         {
-            this.browser = browser;
+            confguration.AppHost = "google.com";
+            browser = new BrowserSession(confguration);
         }
 
         public string Title
@@ -63,6 +74,11 @@ namespace WebSpecs
         public void Visit(string url)
         {
             browser.Visit(url);
+        }
+
+        public void Dispose()
+        {
+            browser.Dispose();
         }
     }
 }
