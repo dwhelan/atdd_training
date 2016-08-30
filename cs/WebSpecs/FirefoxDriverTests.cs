@@ -7,7 +7,7 @@ using OpenQA.Selenium.Support.UI;
 namespace WebSpecs
 {
     [TestFixture]
-    public class FireFoxDriverTest
+    public class FireFoxDriverTests
     {
         private FirefoxDriver driver;
         

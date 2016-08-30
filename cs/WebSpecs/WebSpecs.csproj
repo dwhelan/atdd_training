@@ -81,8 +81,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageObjectTests.cs" />
     <Compile Include="CoypuTests.cs" />
-    <Compile Include="FirefoxDriverTest.cs" />
+    <Compile Include="FirefoxDriverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\" />
+    <Folder Include="Pages\" />
     <Folder Include="Steps\" />
   </ItemGroup>
   <ItemGroup>
