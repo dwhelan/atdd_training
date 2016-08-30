@@ -4,7 +4,7 @@ namespace WebSpecs.Pages
 {
     public class Page
     {
-        protected readonly BrowserSession Browser;
+        public readonly BrowserSession Browser;
 
         public Page(SessionConfiguration configuration, string appHost)
         {
@@ -25,6 +25,16 @@ namespace WebSpecs.Pages
         public string Title
         {
             get { return Browser.Title; }
+        }
+
+        public void ClickButton(string search)
+        {
+            Browser.ClickButton(search);
+        }
+
+        public void ClickLink(string name)
+        {
+            Browser.ClickLink(name);
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System;
 using BoDi;
 using Coypu;
+using Coypu.NUnit.Matchers;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using WebSpecs.Pages;
+using WebSpecs.Pages.Google;
 
 namespace WebSpecs.Steps
 {
@@ -20,13 +22,13 @@ namespace WebSpecs.Steps
         [BeforeTestRun]
         public static void RegisterPages()
         {
-            PageFactory.Instance.Register<GooglePage>(GooglePage.AppHost);
+            PageFactory.Instance.Register<HomePage>(HomePage.AppHost);
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-            DisposePage(GooglePage.AppHost);           
+            DisposePage(HomePage.AppHost);           
         }
 
         private void DisposePage(string appHost)
@@ -70,6 +72,24 @@ namespace WebSpecs.Steps
             Assert.That(page.Title, Is.EqualTo(title));
         }
 
+        [When(@"I click the ""(.*)"" button")]
+        public void WhenIClickTheButton(string search)
+        {
+            page.ClickButton(search);
+        }
+
+        [When(@"I click the ""(.*)"" link")]
+        public void WhenIClickTheLink(string name)
+        {
+            page.ClickLink(name);
+        }
+
+        [Then(@"I should see ""(.*)""")]
+        public void ThenIShouldSee(string text)
+        {
+            Assert.That(page.Browser, Shows.Content(text));
+        }
+
         private void CreatePage(Uri uri)
         {
             var configuration = new SessionConfiguration
@@ -88,6 +108,5 @@ namespace WebSpecs.Steps
                 objectContainer.RegisterInstanceAs<Page>(page, uri.Host);
             }
         }
-
     }
 }

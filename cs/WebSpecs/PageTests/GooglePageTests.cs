@@ -1,18 +1,19 @@
 using Coypu;
 using NUnit.Framework;
 using WebSpecs.Pages;
+using WebSpecs.Pages.Google;
 
 namespace WebSpecs.PageTests
 {
     [TestFixture]
     public class GooglePageTests
     {
-        private GooglePage page;
+        private HomePage page;
 
         [TestFixtureSetUp]
         public void CreatePage()
         {
-            page = new GooglePage(new SessionConfiguration());
+            page = new HomePage(new SessionConfiguration());
         }
 
         [Test]
