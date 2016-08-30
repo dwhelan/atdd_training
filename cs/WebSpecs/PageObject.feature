@@ -5,5 +5,5 @@
 
 @mytag
 Scenario: Get title
-	Given I browse to "/"
+	Given I browse to "http://google.com/"
 	Then the page title should be "Google"

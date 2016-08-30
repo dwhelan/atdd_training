@@ -1,4 +1,5 @@
-﻿using BoDi;
+﻿using System;
+using BoDi;
 using Coypu;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -44,11 +45,18 @@ namespace WebSpecs
         }
 
         [Given(@"I browse to ""(.*)""")]
-        public void GivenIBrowseTo(string path)
+        public void GivenIBrowseTo(string url)
         {
-            var configuration = new SessionConfiguration();
+            var uri = new Uri(url);
+
+            var configuration = new SessionConfiguration
+            {
+                AppHost = uri.Host,
+                Port = uri.Port
+            };
+
             page = new GooglePage(configuration);
-            page.Visit(path);
+            page.Visit(uri.PathAndQuery);
         }
 
         [Then(@"the page title should be ""(.*)""")]
