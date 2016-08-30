@@ -11,24 +11,34 @@ namespace WebSpecs
     public class Hooks
     {
         private readonly IObjectContainer objectContainer;
-        private BrowserSession browser;
 
         public Hooks(IObjectContainer objectContainer)
         {
             this.objectContainer = objectContainer;
         }
 
-        [BeforeScenario]
-        public void Before()
+        [BeforeTestRun]
+        public static void RegisterPages()
         {
-            browser = new BrowserSession(new SessionConfiguration { AppHost = "google.com" });
-            objectContainer.RegisterInstanceAs(browser);
+            Factory.Instance.Register<GooglePage>(GooglePage.AppHost);
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-            browser.Dispose();
+            DisposePage(GooglePage.AppHost);           
+        }
+
+        private void DisposePage(string appHost)
+        {
+            try
+            {
+                var page = objectContainer.Resolve<Page>(appHost);
+                page.Dispose();
+            }
+            catch (ObjectContainerException)
+            {
+            }
         }
     }
 
@@ -37,7 +47,7 @@ namespace WebSpecs
     {
         private readonly IObjectContainer objectContainer;
 
-        private GooglePage page;
+        private Page page;
 
         public PageObjectSteps(IObjectContainer objectContainer)
         {
@@ -49,14 +59,28 @@ namespace WebSpecs
         {
             var uri = new Uri(url);
 
+            CreatePage(uri);
+
+            page.Visit(uri.PathAndQuery);
+        }
+
+        private void CreatePage(Uri uri)
+        {
             var configuration = new SessionConfiguration
             {
                 AppHost = uri.Host,
                 Port = uri.Port
             };
 
-            page = new GooglePage(configuration);
-            page.Visit(uri.PathAndQuery);
+            try
+            {
+                page = objectContainer.Resolve<Page>(uri.Host);
+            }
+            catch (ObjectContainerException)
+            {
+                page = Factory.Instance.CreatePage(uri.Host, configuration);
+                objectContainer.RegisterInstanceAs<Page>(page, uri.Host);
+            }
         }
 
         [Then(@"the page title should be ""(.*)""")]
