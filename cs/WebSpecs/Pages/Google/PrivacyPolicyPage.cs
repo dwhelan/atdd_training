@@ -2,7 +2,7 @@ using Coypu;
 
 namespace WebSpecs.Pages.Google
 {
-    public class PrivacyPolicyPage : Page
+    public class PrivacyPolicyPage : Site
     {
         public static readonly string AppHost = "www.google.com";
 

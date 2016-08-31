@@ -8,12 +8,12 @@ namespace WebSpecs.PageTests
     [TestFixture]
     public class GooglePageTests
     {
-        private HomePage page;
+        private GoogleSite page;
 
         [TestFixtureSetUp]
         public void CreatePage()
         {
-            page = new HomePage(new SessionConfiguration());
+            page = new GoogleSite(new SessionConfiguration());
         }
 
         [Test]

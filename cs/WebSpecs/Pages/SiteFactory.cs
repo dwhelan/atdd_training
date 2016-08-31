@@ -4,13 +4,13 @@ using Coypu;
 
 namespace WebSpecs.Pages
 {
-    public class PageFactory
+    public class SiteFactory
     {
-        public static PageFactory Instance { get { return instance; } }
+        public static SiteFactory Instance { get { return instance; } }
 
-        private static readonly PageFactory instance = new PageFactory();
+        private static readonly SiteFactory instance = new SiteFactory();
 
-        private PageFactory() { }
+        private SiteFactory() { }
 
         static Dictionary<string, Type> registeredPages = new Dictionary<string, Type>();
 
@@ -23,14 +23,14 @@ namespace WebSpecs.Pages
             registeredPages.Add(appHost, pageClass);
         }
 
-        public Page CreatePage(string appHost, SessionConfiguration configuration)
+        public Site CreateSite(string appHost, SessionConfiguration configuration)
         {
             Type type;
 
             if (!registeredPages.TryGetValue(appHost, out type))
                 throw new ArgumentException("no page class registered for {0}", appHost);
 
-            return (Page) Activator.CreateInstance(type, configuration);
+            return (Site) Activator.CreateInstance(type, configuration);
         }
 
         public void UnRegister(string appHost)

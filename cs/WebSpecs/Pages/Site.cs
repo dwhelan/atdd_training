@@ -2,11 +2,11 @@ using Coypu;
 
 namespace WebSpecs.Pages
 {
-    public class Page
+    public class Site
     {
         public readonly BrowserSession Browser;
 
-        public Page(SessionConfiguration configuration, string appHost)
+        public Site(SessionConfiguration configuration, string appHost)
         {
             configuration.AppHost = appHost;
             Browser = new BrowserSession(configuration);
@@ -27,9 +27,9 @@ namespace WebSpecs.Pages
             get { return Browser.Title; }
         }
 
-        public void ClickButton(string search)
+        public void ClickButton(string locator)
         {
-            Browser.ClickButton(search);
+            Browser.ClickButton(locator);
         }
 
         public void ClickLink(string name)

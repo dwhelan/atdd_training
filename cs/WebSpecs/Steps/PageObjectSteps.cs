@@ -20,22 +20,22 @@ namespace WebSpecs.Steps
         }
 
         [BeforeTestRun]
-        public static void RegisterPages()
+        public static void RegisterSites()
         {
-            PageFactory.Instance.Register<HomePage>(HomePage.AppHost);
+            SiteFactory.Instance.Register<GoogleSite>(GoogleSite.AppHost);
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-            DisposePage(HomePage.AppHost);           
+            DisposeSites(GoogleSite.AppHost);           
         }
 
-        private void DisposePage(string appHost)
+        private void DisposeSites(string appHost)
         {
             try
             {
-                var page = objectContainer.Resolve<Page>(appHost);
+                var page = objectContainer.Resolve<Site>(appHost);
                 page.Dispose();
             }
             catch (ObjectContainerException)
@@ -49,7 +49,7 @@ namespace WebSpecs.Steps
     {
         private readonly IObjectContainer objectContainer;
 
-        private Page page;
+        private Site page;
 
         public PageObjectSteps(IObjectContainer objectContainer)
         {
@@ -100,12 +100,12 @@ namespace WebSpecs.Steps
 
             try
             {
-                page = objectContainer.Resolve<Page>(uri.Host);
+                page = objectContainer.Resolve<Site>(uri.Host);
             }
             catch (ObjectContainerException)
             {
-                page = PageFactory.Instance.CreatePage(uri.Host, configuration);
-                objectContainer.RegisterInstanceAs<Page>(page, uri.Host);
+                page = SiteFactory.Instance.CreateSite(uri.Host, configuration);
+                objectContainer.RegisterInstanceAs<Site>(page, uri.Host);
             }
         }
     }
