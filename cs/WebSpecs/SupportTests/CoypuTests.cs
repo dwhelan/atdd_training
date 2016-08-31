@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace WebSpecs
 {
-    [TestFixture]
+    [TestFixture, Ignore]
     public class CoypuTests
     {
         private BrowserSession browser;
@@ -41,7 +41,7 @@ namespace WebSpecs
         }
 
         [Test, RequiresSTA]
-        public void InernetExplorer_with_WatiN()
+        public void InternetExplorer_with_WatiN()
         {
             sessionConfiguration.Driver = typeof(WatiNDriver);
             sessionConfiguration.Browser = Browser.InternetExplorer;

@@ -14,19 +14,19 @@ namespace Calculator.Steps
             Calculator = new Domain.Calculator();
         }
 
-        [Given("I have entered (.*)")]
+        [Given(@"I have entered ""(.*)""")]
         public void GivenIHaveEnteredSomethingIntoTheCalculator(int number)
         {
             Calculator.Push(number);
         }
 
-        [When("I press add")]
+        [When(@"I press add")]
         public void WhenIPressAdd()
         {
             Calculator.Add();
         }
 
-        [Then("the result should be (.*)")]
+        [Then(@"the result should be ""(.*)""")]
         public void ThenTheResultShouldBe(int result)
         {
             Assert.That(Calculator.Result, Is.EqualTo(result));

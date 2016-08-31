@@ -35,8 +35,8 @@ namespace WebSpecs.Steps
         {
             try
             {
-                var page = objectContainer.Resolve<Site>(appHost);
-                page.Dispose();
+                var site = objectContainer.Resolve<Site>(appHost);
+                site.Dispose();
             }
             catch (ObjectContainerException)
             {
@@ -48,12 +48,18 @@ namespace WebSpecs.Steps
     public class PageObjectSteps
     {
         private readonly IObjectContainer objectContainer;
-
-        private Site page;
+        private Site site;
 
         public PageObjectSteps(IObjectContainer objectContainer)
         {
             this.objectContainer = objectContainer;
+        }
+
+        [Given(@"I browse to the ""(.*)""")]
+        public void GivenIBrowseToThe(string siteName)
+        {
+            CreateSite2(siteName);
+            site.Visit("/");
         }
 
         [Given(@"I browse to ""(.*)""")]
@@ -61,36 +67,55 @@ namespace WebSpecs.Steps
         {
             var uri = new Uri(url);
 
-            CreatePage(uri);
+            CreateSite(uri);
 
-            page.Visit(uri.PathAndQuery);
+            site.Visit(uri.PathAndQuery);
         }
 
         [Then(@"the page title should be ""(.*)""")]
         public void ThenThePageTitleShouldBe(string title)
         {
-            Assert.That(page.Title, Is.EqualTo(title));
+            Assert.That(site.Title, Is.EqualTo(title));
         }
 
         [When(@"I click the ""(.*)"" button")]
         public void WhenIClickTheButton(string search)
         {
-            page.ClickButton(search);
+            site.ClickButton(search);
         }
 
         [When(@"I click the ""(.*)"" link")]
         public void WhenIClickTheLink(string name)
         {
-            page.ClickLink(name);
+            site.ClickLink(name);
         }
 
         [Then(@"I should see ""(.*)""")]
         public void ThenIShouldSee(string text)
         {
-            Assert.That(page.Browser, Shows.Content(text));
+            Assert.That(site.Browser, Shows.Content(text));
         }
 
-        private void CreatePage(Uri uri)
+        private void CreateSite2(string siteName)
+        {
+            try
+            {
+                site = objectContainer.Resolve<Site>(siteName);
+            }
+            catch (ObjectContainerException)
+            {
+                var type = SiteFactory.Instance.Find(siteName);
+                var configuration = new SessionConfiguration
+                {
+                    AppHost = "www.google.com"
+                };
+                site = (Site)Activator.CreateInstance(type, configuration);
+
+                objectContainer.RegisterInstanceAs<Site>(site, siteName);
+            }
+        }
+
+        private void CreateSite(Uri uri)
         {
             var configuration = new SessionConfiguration
             {
@@ -100,12 +125,12 @@ namespace WebSpecs.Steps
 
             try
             {
-                page = objectContainer.Resolve<Site>(uri.Host);
+                site = objectContainer.Resolve<Site>(uri.Host);
             }
             catch (ObjectContainerException)
             {
-                page = SiteFactory.Instance.CreateSite(uri.Host, configuration);
-                objectContainer.RegisterInstanceAs<Site>(page, uri.Host);
+                site = SiteFactory.Instance.CreateSite(uri.Host, configuration);
+                objectContainer.RegisterInstanceAs<Site>(site, uri.Host);
             }
         }
     }

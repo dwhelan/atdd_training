@@ -1,3 +1,4 @@
+using System;
 using Coypu;
 using NUnit.Framework;
 using WebSpecs.Pages;
@@ -16,22 +17,32 @@ namespace WebSpecs.PageTests
     [TestFixture]
     public class SiteFactoryTests
     {
-        private Site site;
+        [Test]
+        public void Should_auto_register_sites()
+        {
+            Assert.That(SiteFactory.Instance.Find("TestSite"), Is.EqualTo(typeof(TestSite)));
+        }
 
         [Test]
-        public void Should_register_sites()
+        public void Find_should_throw_if_site_class_cannot_be_found()
         {
-            SiteFactory.Instance.Register<TestSite>(TestSite.AppHost);
-            try
-            {
-                site = SiteFactory.Instance.CreateSite("test.com", new SessionConfiguration());
-                Assert.That(site, Is.InstanceOf(typeof(TestSite)));
-            }
-            finally
-            {
-                site.Dispose();
-                SiteFactory.Instance.UnRegister(TestSite.AppHost);
-            }
+            Assert.Throws<ArgumentException>(() => SiteFactory.Instance.Find("There should be no site with this name"));
+        }
+
+        [TestCase("TestSite")]
+        [TestCase("Test Site")]
+        [TestCase("PageTests.TestSite")]
+        [TestCase("WebSpecs.PageTests.TestSite")]
+        public void Find_should_locate_with_partial_or_full_class_name_match(string siteName)
+        {
+            Assert.That(SiteFactory.Instance.Find(siteName), Is.EqualTo(typeof(TestSite)));
+        }
+
+        [TestCase("PageTestsTestSite")]
+        [TestCase("WebSpecsPageTestsTestSite")]
+        public void Find_remove_punctuation_from_site_names(string siteName)
+        {
+            Assert.That(SiteFactory.Instance.Find(siteName), Is.EqualTo(typeof(TestSite)));
         }
     }
 }

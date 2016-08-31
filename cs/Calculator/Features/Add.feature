@@ -5,7 +5,7 @@
 
 Scenario: Add two numbers
 	Given I have a new calculator
-	And I have entered 50
-	And I have entered 70
+	And I have entered "50"
+	And I have entered "70"
 	When I press add
-	Then the result should be 120
+	Then the result should be "120"
