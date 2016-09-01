@@ -1,21 +1,16 @@
 using Coypu;
+using WebSpecs.Steps;
 
 namespace WebSpecs.Pages
 {
     public abstract class Page
     {
-        public readonly BrowserSession Browser;
-        private BrowserSession browserSession;
+        public readonly PageBrowserSession Browser;
 
-        public Page(SessionConfiguration configuration, string appHost)
+        protected Page(PageBrowserSession browser, string host)
         {
-            configuration.AppHost = appHost;
-            Browser = new BrowserSession(configuration);
-        }
-
-        public Page(BrowserSession browserSession)
-        {
-            this.Browser = browserSession;
+            Browser = browser;
+            Browser.Configuration.AppHost = host;
         }
 
         public void Visit(string url)

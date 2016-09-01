@@ -69,22 +69,20 @@ namespace WebSpecs.PageTests
         {
 #line 6
 #line 7
- testRunner.Given("I browse to the \"Google Page\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I browse to the \"Google Home Page\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Get title")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
         public virtual void GetTitle()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get title", new string[] {
-                        "mytag"});
-#line 10
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get title", ((string[])(null)));
+#line 9
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 11
+#line 10
  testRunner.Then("the page title should be \"Google\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -97,11 +95,11 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Click button", new string[] {
                         "ignore"});
-#line 14
+#line 13
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 15
+#line 14
  testRunner.When("I click the \"I\'m Feeling Lucky\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
@@ -114,13 +112,13 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Click link", new string[] {
                         "ignore"});
-#line 18
+#line 17
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 19
+#line 18
  testRunner.When("I click the \"Privacy\" link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 20
+#line 19
  testRunner.Then("I should see \"Welcome to the Google Privacy Policy\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

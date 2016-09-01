@@ -81,8 +81,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\Google\BasePage.cs" />
     <Compile Include="Pages\Google\PrivacyPolicyPage.cs" />
-    <Compile Include="Pages\Google\GooglePage.cs" />
+    <Compile Include="Pages\Google\HomePage.cs" />
     <Compile Include="Steps\PageObjectSteps.cs" />
     <Compile Include="Pages\PageFactory.cs" />
     <Compile Include="SupportTests\CoypuTests.cs" />

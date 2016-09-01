@@ -2,26 +2,24 @@ using System;
 using Coypu;
 using NUnit.Framework;
 using WebSpecs.Pages;
+using WebSpecs.Steps;
 
 namespace WebSpecs.PageTests
 {
-    public class TestPage : Page
-    {
-        internal static readonly string AppHost = "test.com";
-
-        public TestPage(SessionConfiguration configuration) : base(configuration, AppHost)
-        {
-        }
-    }
-
     public abstract class AbstractTestPage : Page
     {
-        internal static readonly string AppHost = "abstract_test.com";
-
-        public AbstractTestPage(SessionConfiguration configuration) : base(configuration, AppHost)
+        protected AbstractTestPage(PageBrowserSession browserSession) : base(browserSession, "test.com")
         {
         }
     }
+
+    public class TestPage : AbstractTestPage
+    {
+        public TestPage(PageBrowserSession browserSession) : base(browserSession)
+        {
+        }
+    }
+
 
     [TestFixture]
     public class PageFactoryTests

@@ -1,12 +1,11 @@
 using Coypu;
+using WebSpecs.Steps;
 
 namespace WebSpecs.Pages.Google
 {
-    public class PrivacyPolicyPage : Page
+    public class PrivacyPolicyPage : BasePage
     {
-        public static readonly string AppHost = "www.google.com";
-
-        public PrivacyPolicyPage(SessionConfiguration configuration) : base(configuration, AppHost)
+        public PrivacyPolicyPage(PageBrowserSession browser) : base(browser)
         {
         }
     }

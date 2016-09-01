@@ -15,7 +15,7 @@ namespace WebSpecs.Steps
     public class Hooks
     {
         private readonly IObjectContainer objectContainer;
-        private BrowserSession _browser;
+        private BrowserSession browser;
 
         public Hooks(IObjectContainer objectContainer)
         {
@@ -33,14 +33,14 @@ namespace WebSpecs.Steps
                 //Browser = Browser.InternetExplorer,
                 //Browser = Browser.PhantomJS,
             };
-            _browser = new PageBrowserSession(configuration);
-            objectContainer.RegisterInstanceAs(_browser);
+            browser = new PageBrowserSession(configuration);
+            objectContainer.RegisterInstanceAs(browser);
         }
 
         [AfterScenario]
         public void DisposeSites()
         {
-            _browser.Dispose();
+            browser.Dispose();
         }
     }
 
@@ -50,7 +50,7 @@ namespace WebSpecs.Steps
         {
         }
 
-        public SessionConfiguration Configuration { get { return base.SessionConfiguration; } }
+        public SessionConfiguration Configuration { get { return SessionConfiguration; } }
     }
 
     [Binding]
@@ -64,9 +64,9 @@ namespace WebSpecs.Steps
         }
 
         [Given(@"I browse to the ""(.*)""")]
-        public void GivenIBrowseToThe(string siteName)
+        public void GivenIBrowseToThe(string pageName)
         {
-            Site(siteName).Visit("/");
+            PageFor(pageName).Visit("/");
         }
 
         [Given(@"I browse to ""(.*)""")]
@@ -99,9 +99,9 @@ namespace WebSpecs.Steps
             Assert.That(browser, Shows.Content(text));
         }
 
-        private Page Site(string siteName)
+        private Page PageFor(string pageName)
         {
-            return PageFactory.Instance.Create(siteName, browser);
+            return PageFactory.Instance.Create(pageName, browser);
         }
     }
 }

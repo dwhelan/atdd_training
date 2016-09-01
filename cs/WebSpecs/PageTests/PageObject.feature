@@ -4,9 +4,8 @@
 	I want to use page objects
 
 Background:
-	Given I browse to the "Google Page"
+	Given I browse to the "Google Home Page"
 
-@mytag
 Scenario: Get title
 	Then the page title should be "Google"
 
