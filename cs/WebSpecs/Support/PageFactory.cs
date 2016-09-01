@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using WebSpecs.Steps;
 
-namespace WebSpecs.Pages
+namespace WebSpecs.Support
 {
     public class PageFactory
     {

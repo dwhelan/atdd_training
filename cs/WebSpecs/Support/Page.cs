@@ -1,6 +1,4 @@
-using WebSpecs.Steps;
-
-namespace WebSpecs.Pages
+namespace WebSpecs.Support
 {
     public abstract class Page
     {

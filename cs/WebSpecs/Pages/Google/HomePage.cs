@@ -1,7 +1,7 @@
 using System;
 using Coypu;
 using OpenQA.Selenium;
-using WebSpecs.Steps;
+using WebSpecs.Support;
 
 namespace WebSpecs.Pages.Google
 {

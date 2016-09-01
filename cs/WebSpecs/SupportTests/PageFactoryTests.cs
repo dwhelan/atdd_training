@@ -1,9 +1,8 @@
 using System;
 using NUnit.Framework;
-using WebSpecs.Pages;
-using WebSpecs.Steps;
+using WebSpecs.Support;
 
-namespace WebSpecs.PageTests
+namespace WebSpecs.SupportTests
 {
     public abstract class AbstractTestPage : Page
     {
@@ -43,15 +42,15 @@ namespace WebSpecs.PageTests
 
         [TestCase("TestPage")]
         [TestCase("Test Page")]
-        [TestCase("PageTests.TestPage")]
-        [TestCase("WebSpecs.PageTests.TestPage")]
+        [TestCase("SupportTests.TestPage")]
+        [TestCase("WebSpecs.SupportTests.TestPage")]
         public void Find_should_locate_with_partial_or_full_class_name_match(string siteName)
         {
             Assert.That(PageFactory.Instance.Find(siteName), Is.EqualTo(typeof(TestPage)));
         }
 
-        [TestCase("PageTestsTestPage")]
-        [TestCase("WebSpecsPageTestsTestPage")]
+        [TestCase("SupportTestsTestPage")]
+        [TestCase("WebSpecsSupportTestsTestPage")]
         public void Find_remove_punctuation_from_site_names(string siteName)
         {
             Assert.That(PageFactory.Instance.Find(siteName), Is.EqualTo(typeof(TestPage)));
