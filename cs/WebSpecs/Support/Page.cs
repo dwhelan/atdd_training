@@ -1,13 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace WebSpecs.Support
 {
     public abstract class Page
     {
+        public List<string> HostAliases { get; private set; }
         public readonly PageBrowserSession Browser;
+        public string Host { get; private set; }
 
-        protected Page(PageBrowserSession browser, string host)
+        protected Page(PageBrowserSession browser, string host, params string[] hostAliases)
         {
-            Browser = browser;
-            Browser.Configuration.AppHost = host;
+            Host = host;
+            HostAliases = hostAliases.ToList();
+            HostAliases.Add(host);
+
+            if (browser != null)
+            {
+                Browser = browser;
+                Browser.Configuration.AppHost = host;
+            }
         }
 
         public void Visit(string url)
@@ -15,29 +27,9 @@ namespace WebSpecs.Support
             Browser.Visit(url);
         }
 
-        public void Dispose()
-        {
-            Browser.Dispose();
-        }
-
         public string Title
         {
             get { return Browser.Title; }
-        }
-
-        public void ClickButton(string locator)
-        {
-            Browser.ClickButton(locator);
-        }
-
-        public void ClickLink(string name)
-        {
-            Browser.ClickLink(name);
-        }
-
-        public bool HasContent(string text)
-        {
-            return Browser.HasContent(text);
         }
     }
 }

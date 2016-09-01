@@ -19,6 +19,13 @@ namespace WebSpecs.Support
             Page.Visit("/");
         }
 
+        [Then(@"I should be on the ""(.*)""")]
+        public void ThenIShouldBeOnThe(string pageName)
+        {
+            var expectedPage = PageFactory.Instance.Create(pageName);
+            Assert.Contains(browser.Location.Host, expectedPage.HostAliases);
+        }
+
         [Then(@"the page title should be ""(.*)""")]
         public void ThenThePageTitleShouldBe(string title)
         {
