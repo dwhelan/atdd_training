@@ -1,17 +1,17 @@
-﻿using BoDi;
+using BoDi;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using WebSpecs.Pages.Google;
 using WebSpecs.Support;
 
-namespace WebSpecs.Steps
+namespace WebSpecs.Steps.Google
 {
     [Binding]
-    public class GoogleHomePageSteps : Base
+    public class HomePageSteps : Base
     {
         private HomePage HomePage { get { return (HomePage) base.Page; } }
 
-        public GoogleHomePageSteps(IObjectContainer objectContainer) : base(objectContainer)
+        public HomePageSteps(IObjectContainer objectContainer) : base(objectContainer)
         {
         }
 
