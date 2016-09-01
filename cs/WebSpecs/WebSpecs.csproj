@@ -81,10 +81,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\Google\Privacy.feature.cs">
+      <DependentUpon>Privacy.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Pages\Google\BasePage.cs" />
     <Compile Include="Pages\Google\PrivacyPolicyPage.cs" />
     <Compile Include="Pages\Google\HomePage.cs" />
     <Compile Include="Steps\Google\HomePageSteps.cs" />
+    <Compile Include="Steps\Google\PrivacyPolicySteps.cs" />
     <Compile Include="SupportTests\CoypuTests.cs" />
     <Compile Include="SupportTests\FirefoxDriverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,6 +109,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\Google\Privacy.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Privacy.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Features\Google\HomePage.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

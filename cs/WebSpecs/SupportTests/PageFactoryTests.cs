@@ -6,14 +6,14 @@ namespace WebSpecs.SupportTests
 {
     public abstract class AbstractTestPage : Page
     {
-        protected AbstractTestPage(PageBrowserSession browserSession) : base(browserSession, "test.com")
+        protected AbstractTestPage(PageBrowserSession browserSession, string path) : base(browserSession, "test.com", path, false)
         {
         }
     }
 
     public class TestPage : AbstractTestPage
     {
-        public TestPage(PageBrowserSession browserSession) : base(browserSession)
+        public TestPage(PageBrowserSession browserSession) : base(browserSession, "path")
         {
         }
     }

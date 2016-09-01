@@ -18,7 +18,6 @@ Scenario: Basic search
 Scenario: View privacy policy
 	When I click on Privacy
 	Then I should be on the "Privacy Policy Page"
-	Then I should see "Welcome to the Google Privacy Policy"
 
 Scenario: I'm feeling lucky search
 	When I click the "I'm Feeling Lucky" button

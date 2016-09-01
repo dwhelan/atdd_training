@@ -5,26 +5,32 @@ namespace WebSpecs.Support
 {
     public abstract class Page
     {
-        public List<string> HostAliases { get; private set; }
-        public readonly PageBrowserSession Browser;
         public string Host { get; private set; }
+        public List<string> HostAliases { get; }
+        public string Path { get; }
+        public bool SSL { get; }
 
-        protected Page(PageBrowserSession browser, string host, params string[] hostAliases)
+        protected readonly PageBrowserSession Browser;
+
+        protected Page(PageBrowserSession browser, string host, string path, bool ssl=false, params string[] hostAliases)
         {
             Host = host;
             HostAliases = hostAliases.ToList();
             HostAliases.Add(host);
+            Path = path;
+            SSL = ssl;
 
             if (browser != null)
             {
                 Browser = browser;
                 Browser.Configuration.AppHost = host;
+                Browser.Configuration.SSL = SSL;
             }
         }
 
-        public void Visit(string url)
+        public void Visit()
         {
-            Browser.Visit(url);
+            Browser.Visit(Path);
         }
 
         public string Title

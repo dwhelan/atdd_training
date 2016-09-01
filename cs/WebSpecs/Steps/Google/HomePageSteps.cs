@@ -19,6 +19,7 @@ namespace WebSpecs.Steps.Google
         public void WhenIClickOnPrivacy()
         {
             HomePage.Privacy.Click();
+            Page = new PrivacyPolicyPage(Browser);
         }
 
         [When(@"I search for ""(.*)""")]

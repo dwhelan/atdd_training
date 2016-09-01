@@ -1,23 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
 using BoDi;
 
 namespace WebSpecs.Support
 {
     public abstract class Base
     {
-        protected readonly IObjectContainer objectContainer;
-        protected readonly PageBrowserSession browser;
-        protected Page Page { get { return objectContainer.Resolve<Page>(); } }
+        protected readonly IObjectContainer ObjectContainer;
+        protected readonly PageBrowserSession Browser;
+        private readonly List<Page> pages = new List<Page>();
+
+        protected Page Page
+        {
+            get { return pages[0]; }
+            set { pages.Clear(); pages.Add(value); }
+        }
 
         protected Base(IObjectContainer objectContainer)
         {
-            this.objectContainer = objectContainer;
-            browser = objectContainer.Resolve<PageBrowserSession>();
+            ObjectContainer = objectContainer;
+            Browser = objectContainer.Resolve<PageBrowserSession>();
+            pages = objectContainer.Resolve<List<Page>>();
         }
 
-        protected void PageFor(string pageName)
+        protected Page PageFor(string pageName)
         {
-            var page = PageFactory.Instance.Create(pageName, browser);
-            objectContainer.RegisterInstanceAs(page, typeof(Page));
+            return Page = PageFactory.Instance.Create(pageName, Browser);
         }
     }
 }

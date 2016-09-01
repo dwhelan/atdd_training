@@ -8,10 +8,10 @@ namespace WebSpecs.Pages.Google
     public class HomePage : BasePage
     {
         public ElementScope SearchText { get { return Browser.FindField("q"); } }
-        public ElementScope Privacy { get { return Browser.FindLink("Privacy"); } }
         public ElementScope ImFeelingLucky { get { return Browser.FindButton("I'm Feeling Lucky"); } }
+        public ElementScope Privacy { get { return Browser.FindLink("Privacy"); } }
 
-        public HomePage(PageBrowserSession browser) : base(browser)
+        public HomePage(PageBrowserSession browser) : base(browser, "/")
         {
         }
 
