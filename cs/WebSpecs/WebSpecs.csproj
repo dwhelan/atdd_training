@@ -118,7 +118,7 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>HomePage.feature.cs</LastGenOutput>
     </None>
-    <None Include="Web drivers.md" />
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
