@@ -1,4 +1,5 @@
 using Coypu;
+using WebSpecs.Steps;
 
 namespace WebSpecs.Pages.Google
 {
@@ -11,6 +12,10 @@ namespace WebSpecs.Pages.Google
 
         public GoogleSite(SessionConfiguration configuration) : base(configuration, AppHost)
         {
+        }
+        public GoogleSite(PageBrowserSession browserSession) : base(browserSession)
+        {
+            browserSession.Configuration.AppHost = "www.google.com";
         }
     }
 }

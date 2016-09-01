@@ -5,11 +5,17 @@ namespace WebSpecs.Pages
     public class Site
     {
         public readonly BrowserSession Browser;
+        private BrowserSession browserSession;
 
         public Site(SessionConfiguration configuration, string appHost)
         {
             configuration.AppHost = appHost;
             Browser = new BrowserSession(configuration);
+        }
+
+        public Site(BrowserSession browserSession)
+        {
+            this.Browser = browserSession;
         }
 
         public void Visit(string url)

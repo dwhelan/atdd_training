@@ -1,6 +1,8 @@
 ﻿using System;
 using BoDi;
 using Coypu;
+using Coypu.Drivers;
+using Coypu.Drivers.Selenium;
 using Coypu.NUnit.Matchers;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -13,125 +15,94 @@ namespace WebSpecs.Steps
     public class Hooks
     {
         private readonly IObjectContainer objectContainer;
+        private BrowserSession _browser;
 
         public Hooks(IObjectContainer objectContainer)
         {
             this.objectContainer = objectContainer;
         }
 
-        [BeforeTestRun]
-        public static void RegisterSites()
+        [BeforeScenario]
+        public void Before()
         {
-            SiteFactory.Instance.Register<GoogleSite>(GoogleSite.AppHost);
+            var configuration = new SessionConfiguration
+            {
+                // Uncomment the Browser you want
+                Browser = Browser.Firefox,
+                //Browser = Browser.Chrome,
+                //Browser = Browser.InternetExplorer,
+                //Browser = Browser.PhantomJS,
+            };
+            _browser = new PageBrowserSession(configuration);
+            objectContainer.RegisterInstanceAs(_browser);
         }
 
         [AfterScenario]
-        public void AfterScenario()
+        public void DisposeSites()
         {
-            DisposeSites(GoogleSite.AppHost);           
+            _browser.Dispose();
+        }
+    }
+
+    public class PageBrowserSession : BrowserSession
+    {
+        public PageBrowserSession(SessionConfiguration sessionConfiguration) : base(sessionConfiguration)
+        {
         }
 
-        private void DisposeSites(string appHost)
-        {
-            try
-            {
-                var site = objectContainer.Resolve<Site>(appHost);
-                site.Dispose();
-            }
-            catch (ObjectContainerException)
-            {
-            }
-        }
+        public SessionConfiguration Configuration { get { return base.SessionConfiguration; } }
     }
 
     [Binding]
     public class PageObjectSteps
     {
-        private readonly IObjectContainer objectContainer;
-        private Site site;
+        private readonly BrowserSession browser;
 
-        public PageObjectSteps(IObjectContainer objectContainer)
+        public PageObjectSteps(BrowserSession browser)
         {
-            this.objectContainer = objectContainer;
+            this.browser = browser;
         }
 
         [Given(@"I browse to the ""(.*)""")]
         public void GivenIBrowseToThe(string siteName)
         {
-            CreateSite2(siteName);
-            site.Visit("/");
+            Site(siteName).Visit("/");
         }
 
         [Given(@"I browse to ""(.*)""")]
         public void GivenIBrowseTo(string url)
         {
-            var uri = new Uri(url);
-
-            CreateSite(uri);
-
-            site.Visit(uri.PathAndQuery);
+            browser.Visit(url);
         }
 
         [Then(@"the page title should be ""(.*)""")]
         public void ThenThePageTitleShouldBe(string title)
         {
-            Assert.That(site.Title, Is.EqualTo(title));
+            Assert.That(browser.Title, Is.EqualTo(title));
         }
 
         [When(@"I click the ""(.*)"" button")]
         public void WhenIClickTheButton(string search)
         {
-            site.ClickButton(search);
+            browser.ClickButton(search);
         }
 
         [When(@"I click the ""(.*)"" link")]
         public void WhenIClickTheLink(string name)
         {
-            site.ClickLink(name);
+            browser.ClickLink(name);
         }
 
         [Then(@"I should see ""(.*)""")]
         public void ThenIShouldSee(string text)
         {
-            Assert.That(site.Browser, Shows.Content(text));
+            Assert.That(browser, Shows.Content(text));
         }
 
-        private void CreateSite2(string siteName)
+        private Site Site(string siteName)
         {
-            try
-            {
-                site = objectContainer.Resolve<Site>(siteName);
-            }
-            catch (ObjectContainerException)
-            {
-                var type = SiteFactory.Instance.Find(siteName);
-                var configuration = new SessionConfiguration
-                {
-                    AppHost = "www.google.com"
-                };
-                site = (Site)Activator.CreateInstance(type, configuration);
-
-                objectContainer.RegisterInstanceAs<Site>(site, siteName);
-            }
-        }
-
-        private void CreateSite(Uri uri)
-        {
-            var configuration = new SessionConfiguration
-            {
-                AppHost = uri.Host,
-                Port = uri.Port
-            };
-
-            try
-            {
-                site = objectContainer.Resolve<Site>(uri.Host);
-            }
-            catch (ObjectContainerException)
-            {
-                site = SiteFactory.Instance.CreateSite(uri.Host, configuration);
-                objectContainer.RegisterInstanceAs<Site>(site, uri.Host);
-            }
+            var type = SiteFactory.Instance.Find(siteName);
+            return (Site)Activator.CreateInstance(type, browser);
         }
     }
 }

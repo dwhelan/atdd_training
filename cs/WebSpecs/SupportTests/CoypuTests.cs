@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace WebSpecs
 {
-    [TestFixture, Ignore]
+    [TestFixture]
     public class CoypuTests
     {
         private BrowserSession browser;
