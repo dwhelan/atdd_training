@@ -1,5 +1,4 @@
 using System;
-using Coypu;
 using NUnit.Framework;
 using WebSpecs.Pages;
 using WebSpecs.Steps;

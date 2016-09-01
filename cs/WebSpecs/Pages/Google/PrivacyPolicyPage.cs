@@ -1,4 +1,3 @@
-using Coypu;
 using WebSpecs.Steps;
 
 namespace WebSpecs.Pages.Google

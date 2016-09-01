@@ -1,8 +1,6 @@
-﻿using System;
-using BoDi;
+﻿using BoDi;
 using Coypu;
 using Coypu.Drivers;
-using Coypu.Drivers.Selenium;
 using Coypu.NUnit.Matchers;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -53,32 +51,45 @@ namespace WebSpecs.Steps
         public SessionConfiguration Configuration { get { return SessionConfiguration; } }
     }
 
-    [Binding]
-    public class PageObjectSteps
-    {
-        private readonly PageBrowserSession browser;
 
-        public PageObjectSteps(PageBrowserSession browser)
+    [Binding]
+    public abstract class BrowserSteps
+    {
+        protected readonly IObjectContainer objectContainer;
+        protected readonly PageBrowserSession browser;
+        protected Page Page { get { return objectContainer.Resolve<Page>(); } }
+
+        protected BrowserSteps(IObjectContainer objectContainer)
         {
-            this.browser = browser;
+            this.objectContainer = objectContainer;
+            browser = objectContainer.Resolve<PageBrowserSession>();
+        }
+
+        protected void PageFor(string pageName)
+        {
+            var page = PageFactory.Instance.Create(pageName, browser);
+            objectContainer.RegisterInstanceAs(page, typeof(Page));
+        }
+    }
+
+    [Binding]
+    public class PageObjectSteps : BrowserSteps
+    {
+        public PageObjectSteps(IObjectContainer objectContainer) : base(objectContainer)
+        {
         }
 
         [Given(@"I browse to the ""(.*)""")]
         public void GivenIBrowseToThe(string pageName)
         {
-            PageFor(pageName).Visit("/");
-        }
-
-        [Given(@"I browse to ""(.*)""")]
-        public void GivenIBrowseTo(string url)
-        {
-            browser.Visit(url);
+            PageFor(pageName);
+            Page.Visit("/");
         }
 
         [Then(@"the page title should be ""(.*)""")]
         public void ThenThePageTitleShouldBe(string title)
         {
-            Assert.That(browser.Title, Is.EqualTo(title));
+            Assert.That(Page.Title, Is.EqualTo(title));
         }
 
         [When(@"I click the ""(.*)"" button")]
@@ -98,10 +109,33 @@ namespace WebSpecs.Steps
         {
             Assert.That(browser, Shows.Content(text));
         }
+    }
 
-        private Page PageFor(string pageName)
+    [Binding]
+    public class GoogleHomePageSteps : BrowserSteps
+    {
+        private HomePage HomePage { get { return (HomePage) base.Page; } }
+
+        public GoogleHomePageSteps(IObjectContainer objectContainer) : base(objectContainer)
         {
-            return PageFactory.Instance.Create(pageName, browser);
+        }
+
+        [When(@"I click on Privacy")]
+        public void WhenIClickOnPrivacy()
+        {
+            HomePage.Privacy.Click();
+        }
+
+        [When(@"I search for ""(.*)""")]
+        public void WhenISearchFor(string text)
+        {
+            HomePage.Search(text);
+        }
+
+        [Then(@"the search entry should be ""(.*)""")]
+        public void ThenTheSearchEntryShouldBe(string text)
+        {
+            Assert.That(HomePage.SearchText.Value, Is.EqualTo(text));
         }
     }
 }

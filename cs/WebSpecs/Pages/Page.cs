@@ -1,4 +1,3 @@
-using Coypu;
 using WebSpecs.Steps;
 
 namespace WebSpecs.Pages
@@ -36,6 +35,11 @@ namespace WebSpecs.Pages
         public void ClickLink(string name)
         {
             Browser.ClickLink(name);
+        }
+
+        public bool HasContent(string text)
+        {
+            return Browser.HasContent(text);
         }
     }
 }
