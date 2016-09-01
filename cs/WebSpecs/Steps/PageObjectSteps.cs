@@ -56,9 +56,9 @@ namespace WebSpecs.Steps
     [Binding]
     public class PageObjectSteps
     {
-        private readonly BrowserSession browser;
+        private readonly PageBrowserSession browser;
 
-        public PageObjectSteps(BrowserSession browser)
+        public PageObjectSteps(PageBrowserSession browser)
         {
             this.browser = browser;
         }
@@ -99,10 +99,9 @@ namespace WebSpecs.Steps
             Assert.That(browser, Shows.Content(text));
         }
 
-        private Site Site(string siteName)
+        private Page Site(string siteName)
         {
-            var type = SiteFactory.Instance.Find(siteName);
-            return (Site)Activator.CreateInstance(type, browser);
+            return PageFactory.Instance.Create(siteName, browser);
         }
     }
 }

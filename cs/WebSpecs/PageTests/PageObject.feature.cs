@@ -69,7 +69,7 @@ namespace WebSpecs.PageTests
         {
 #line 6
 #line 7
- testRunner.Given("I browse to the \"Google Site\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I browse to the \"Google Page\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         

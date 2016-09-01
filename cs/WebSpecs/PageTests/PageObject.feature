@@ -4,7 +4,7 @@
 	I want to use page objects
 
 Background:
-	Given I browse to the "Google Site"
+	Given I browse to the "Google Page"
 
 @mytag
 Scenario: Get title

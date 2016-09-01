@@ -2,18 +2,18 @@ using Coypu;
 
 namespace WebSpecs.Pages
 {
-    public class Site
+    public abstract class Page
     {
         public readonly BrowserSession Browser;
         private BrowserSession browserSession;
 
-        public Site(SessionConfiguration configuration, string appHost)
+        public Page(SessionConfiguration configuration, string appHost)
         {
             configuration.AppHost = appHost;
             Browser = new BrowserSession(configuration);
         }
 
-        public Site(BrowserSession browserSession)
+        public Page(BrowserSession browserSession)
         {
             this.Browser = browserSession;
         }
