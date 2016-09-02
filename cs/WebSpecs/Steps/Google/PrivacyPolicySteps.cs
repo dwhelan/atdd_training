@@ -1,5 +1,4 @@
-﻿using System;
-using BoDi;
+﻿using BoDi;
 using TechTalk.SpecFlow;
 using WebSpecs.Pages.Google;
 using WebSpecs.Support;
