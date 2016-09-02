@@ -6,9 +6,9 @@ namespace WebSpecs.Support
     public abstract class Page
     {
         public string Host { get; private set; }
-        public List<string> HostAliases { get; }
-        public string Path { get; }
-        public bool SSL { get; }
+        public List<string> HostAliases { get; private set; }
+        public string Path { get; private set; }
+        public bool SSL { get; private set; }
 
         protected readonly PageBrowserSession Browser;
 
