@@ -6,9 +6,9 @@ using TechTalk.SpecFlow;
 namespace WebSpecs.Support
 {
     [Binding]
-    public class PageObjectSteps : Base
+    public class PageSteps : Base
     {
-        public PageObjectSteps(IObjectContainer objectContainer) : base(objectContainer)
+        public PageSteps(IObjectContainer objectContainer) : base(objectContainer)
         {
         }
 

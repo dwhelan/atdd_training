@@ -105,7 +105,7 @@
     <Compile Include="Support\Page.cs" />
     <Compile Include="Support\PageSession.cs" />
     <Compile Include="Support\PageFactory.cs" />
-    <Compile Include="Support\PageObjectSteps.cs" />
+    <Compile Include="Support\PageSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
