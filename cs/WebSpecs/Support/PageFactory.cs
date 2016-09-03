@@ -41,10 +41,15 @@ namespace WebSpecs.Support
 
         public Page Create(string pageName, PageBrowserSession browser = null)
         {
-            return (Page) Activator.CreateInstance(Find(pageName), browser);
+            return Create(PageClassFor(pageName), browser);
         }
 
-        internal Type Find(string pageName)
+        public Page Create(Type pageClass, PageBrowserSession browser = null)
+        {
+            return (Page) Activator.CreateInstance(pageClass, browser);
+        }
+
+        internal Type PageClassFor(string pageName)
         {
             var matches = pageClasses.Where(type => PageNameMatchesPageClass(pageName, type)).ToList();
             if (matches.Count == 0)

@@ -25,7 +25,7 @@ namespace WebSpecs.SupportTests
         [Test]
         public void Should_auto_register_sites()
         {
-            Assert.That(PageFactory.Instance.Find("TestPage"), Is.EqualTo(typeof(TestPage)));
+            Assert.That(PageFactory.Instance.PageClassFor("TestPage"), Is.EqualTo(typeof(TestPage)));
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace WebSpecs.SupportTests
         [Test]
         public void Find_should_throw_if_site_class_cannot_be_found()
         {
-            Assert.Throws<ArgumentException>(() => PageFactory.Instance.Find("There should be no site with this name"));
+            Assert.Throws<ArgumentException>(() => PageFactory.Instance.PageClassFor("There should be no site with this name"));
         }
 
         [TestCase("TestPage")]
@@ -46,14 +46,14 @@ namespace WebSpecs.SupportTests
         [TestCase("WebSpecs.SupportTests.TestPage")]
         public void Find_should_locate_with_partial_or_full_class_name_match(string siteName)
         {
-            Assert.That(PageFactory.Instance.Find(siteName), Is.EqualTo(typeof(TestPage)));
+            Assert.That(PageFactory.Instance.PageClassFor(siteName), Is.EqualTo(typeof(TestPage)));
         }
 
         [TestCase("SupportTestsTestPage")]
         [TestCase("WebSpecsSupportTestsTestPage")]
         public void Find_remove_punctuation_from_site_names(string siteName)
         {
-            Assert.That(PageFactory.Instance.Find(siteName), Is.EqualTo(typeof(TestPage)));
+            Assert.That(PageFactory.Instance.PageClassFor(siteName), Is.EqualTo(typeof(TestPage)));
         }
     }
 }

@@ -19,5 +19,11 @@ namespace WebSpecs.Pages.Google
         {
             Browser.FillIn("q", new Options { Timeout = TimeSpan.FromSeconds(10) }).With(text + Keys.Return );  
         }
+
+        //public T Click<T>(ElementScope element) where T : Page
+        //{
+        //    element.Click();
+        //    return (T) PageFactory.Instance.Create(typeof(T), Browser);
+        //}
     }
 }

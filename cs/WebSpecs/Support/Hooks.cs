@@ -24,8 +24,8 @@ namespace WebSpecs.Support
             var configuration = new SessionConfiguration
             {
                 // Uncomment the Browser you want
-                Browser = Browser.Firefox,
-                //Browser = Browser.Chrome,
+                //Browser = Browser.Firefox,
+                Browser = Browser.Chrome,
                 //Browser = Browser.InternetExplorer,
                 //Browser = Browser.PhantomJS,
             };

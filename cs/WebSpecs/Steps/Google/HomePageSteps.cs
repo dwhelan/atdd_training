@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using BoDi;
+using Coypu;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using WebSpecs.Pages.Google;
@@ -9,7 +13,7 @@ namespace WebSpecs.Steps.Google
     [Binding]
     public class HomePageSteps : Base
     {
-        private HomePage HomePage { get { return (HomePage) base.Page; } }
+        private HomePage HomePage { get { return (HomePage) Page; } }
 
         public HomePageSteps(IObjectContainer objectContainer) : base(objectContainer)
         {
@@ -34,4 +38,18 @@ namespace WebSpecs.Steps.Google
             Assert.That(HomePage.SearchText.Value, Is.EqualTo(text));
         }
     }
+
+    //public static class ExtensionOperation
+    //{
+    //    public static SessionConfiguration Configuration(this BrowserSession browser)
+    //    {
+    //        return browser.SessionConfiguration;
+    //    }
+
+    //    public static void Click<T>(this ElementScope element) where T : Page
+    //    {
+    //        element.Click();
+    //        PageFactory.Instance.Create(typeof(T), (PageBrowserSession) element.Browser);
+    //    }
+    //}
 }

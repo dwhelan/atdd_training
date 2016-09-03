@@ -10,6 +10,6 @@ namespace WebSpecs.Support
         {
         }
 
-        public SessionConfiguration Configuration { get { return SessionConfiguration; } }
+        public SessionConfiguration Configuration { get { return base.SessionConfiguration; } }
     }
 }
