@@ -10,9 +10,9 @@ namespace WebSpecs.Support
         public string Path { get; private set; }
         public bool SSL { get; private set; }
 
-        protected readonly PageBrowserSession Browser;
+        protected readonly PageSession Browser;
 
-        protected Page(PageBrowserSession browser, string host, string path, bool ssl=false, params string[] hostAliases)
+        protected Page(PageSession browser, string host, string path, bool ssl=false, params string[] hostAliases)
         {
             Host = host;
             HostAliases = hostAliases.ToList();

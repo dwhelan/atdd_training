@@ -2,11 +2,11 @@ using Coypu;
 
 namespace WebSpecs.Support
 {
-    public class PageBrowserSession : BrowserSession
+    public class PageSession : BrowserSession
     {
         public Page Page { get; set; }
 
-        public PageBrowserSession(SessionConfiguration sessionConfiguration) : base(sessionConfiguration)
+        public PageSession(SessionConfiguration sessionConfiguration) : base(sessionConfiguration)
         {
         }
 

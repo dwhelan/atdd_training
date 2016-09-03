@@ -7,7 +7,7 @@ namespace WebSpecs.Pages.Google
     {
         public ElementScope Overview { get { return Browser.FindLink("Overview"); } }
        
-        public PrivacyPolicyPage(PageBrowserSession browser) : base(browser, "/intl/en/policies/privacy/")
+        public PrivacyPolicyPage(PageSession browser) : base(browser, "/intl/en/policies/privacy/")
         {
         }
     }

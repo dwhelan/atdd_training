@@ -29,7 +29,7 @@ namespace WebSpecs.Support
                 //Browser = Browser.InternetExplorer,
                 //Browser = Browser.PhantomJS,
             };
-            browser = new PageBrowserSession(configuration);
+            browser = new PageSession(configuration);
             objectContainer.RegisterInstanceAs(browser);
             objectContainer.RegisterInstanceAs(pages);
         }

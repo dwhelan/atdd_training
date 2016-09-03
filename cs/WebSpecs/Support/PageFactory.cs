@@ -39,12 +39,12 @@ namespace WebSpecs.Support
             return pageClasses.Contains(siteClass);
         }
 
-        public Page Create(string pageName, PageBrowserSession browser = null)
+        public Page Create(string pageName, PageSession browser = null)
         {
             return Create(PageClassFor(pageName), browser);
         }
 
-        public Page Create(Type pageClass, PageBrowserSession browser = null)
+        public Page Create(Type pageClass, PageSession browser = null)
         {
             return (Page) Activator.CreateInstance(pageClass, browser);
         }

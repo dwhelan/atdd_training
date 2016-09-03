@@ -103,7 +103,7 @@
     <Compile Include="Support\Base.cs" />
     <Compile Include="Support\Hooks.cs" />
     <Compile Include="Support\Page.cs" />
-    <Compile Include="Support\PageBrowserSession.cs" />
+    <Compile Include="Support\PageSession.cs" />
     <Compile Include="Support\PageFactory.cs" />
     <Compile Include="Support\PageObjectSteps.cs" />
   </ItemGroup>

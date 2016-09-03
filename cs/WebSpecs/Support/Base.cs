@@ -5,7 +5,7 @@ namespace WebSpecs.Support
     public abstract class Base
     {
         protected readonly IObjectContainer ObjectContainer;
-        protected readonly PageBrowserSession Browser;
+        protected readonly PageSession Browser;
 
         protected Page Page
         {
@@ -16,7 +16,7 @@ namespace WebSpecs.Support
         protected Base(IObjectContainer objectContainer)
         {
             ObjectContainer = objectContainer;
-            Browser = objectContainer.Resolve<PageBrowserSession>();
+            Browser = objectContainer.Resolve<PageSession>();
         }
 
         protected Page PageFor(string pageName)

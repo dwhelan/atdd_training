@@ -11,7 +11,7 @@ namespace WebSpecs.Pages.Google
         public ElementScope ImFeelingLucky { get { return Browser.FindButton("I'm Feeling Lucky"); } }
         public ElementScope Privacy { get { return Browser.FindLink("Privacy"); } }
 
-        public HomePage(PageBrowserSession browser) : base(browser, "/")
+        public HomePage(PageSession browser) : base(browser, "/")
         {
         }
 
