@@ -19,4 +19,3 @@ Follow the instructions in the `README.MD` file in the language folder of your c
 
  * [C#](cs)
  * [Ruby](ruby)
- 
