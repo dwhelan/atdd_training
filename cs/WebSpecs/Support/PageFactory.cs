@@ -49,6 +49,7 @@ namespace WebSpecs.Support
             return (Page) Activator.CreateInstance(pageClass, browser);
         }
 
+        // TODO: handle multiple matches
         internal Type PageClassFor(string pageName)
         {
             var matches = pageClasses.Where(type => PageNameMatchesPageClass(pageName, type)).ToList();

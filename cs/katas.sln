@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{56CCBD20-8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSpecs", "WebSpecs\WebSpecs.csproj", "{7DA90E0D-875C-4FFA-A7DE-A463801A588D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageObject", "..\..\cs\PageObject\PageObject\PageObject.csproj", "{C1D3E486-2B8B-4A5A-8522-362EB6CC27BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7DA90E0D-875C-4FFA-A7DE-A463801A588D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DA90E0D-875C-4FFA-A7DE-A463801A588D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DA90E0D-875C-4FFA-A7DE-A463801A588D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1D3E486-2B8B-4A5A-8522-362EB6CC27BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1D3E486-2B8B-4A5A-8522-362EB6CC27BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1D3E486-2B8B-4A5A-8522-362EB6CC27BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1D3E486-2B8B-4A5A-8522-362EB6CC27BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,6 +2,7 @@ using BoDi;
 
 namespace WebSpecs.Support
 {
+    // TODO: Could we use a class attribute [Page] rather than subclassing
     public abstract class Base
     {
         protected readonly IObjectContainer ObjectContainer;

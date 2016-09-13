@@ -91,20 +91,17 @@
     <Compile Include="Pages\Google\HomePage.cs" />
     <Compile Include="Steps\Google\HomePageSteps.cs" />
     <Compile Include="Steps\Google\PrivacyPolicySteps.cs" />
-    <Compile Include="SupportTests\CoypuTests.cs" />
-    <Compile Include="SupportTests\FirefoxDriverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Features\Google\HomePage.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HomePage.feature</DependentUpon>
     </Compile>
-    <Compile Include="SupportTests\PageFactoryTests.cs" />
     <Compile Include="Support\Base.cs" />
     <Compile Include="Support\Hooks.cs" />
     <Compile Include="Support\Page.cs" />
-    <Compile Include="Support\PageSession.cs" />
     <Compile Include="Support\PageFactory.cs" />
+    <Compile Include="Support\PageSession.cs" />
     <Compile Include="Support\PageSteps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +117,14 @@
     </None>
     <None Include="readme.md" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="phantomjs-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\cs\PageObject\PageObject\PageObject.csproj">
+      <Project>{c1d3e486-2b8b-4a5a-8522-362eb6cc27bb}</Project>
+      <Name>PageObject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
