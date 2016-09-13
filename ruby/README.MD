@@ -1,6 +1,6 @@
 ﻿# Ruby
 
-Training exercises and katas in ruby. The exercises were written in Ruby 2.3.1 but should work with Ruby 2.0 or later.
+ATDD training exercises in ruby. The exercises were written in Ruby 2.3.1 but should work with Ruby 2.0 or later.
 
 Acceptance tests use [Cucumber](https://cucumber.io/) with
 [RSpec](http://rspec.info/).
@@ -39,14 +39,17 @@ for more command line options or use the command line help:
 $ cucumber -h
 ```
 ## Handling Work In Progress
-A cucumber convention is to use a `@wip` tag to mark scenarios that are under construction.
-By default, these scenarios will excluded when you run cucumber. You can run these by
-including `-t @wip`
+A cucumber convention is to use a `@wip` tag to mark scenarios or features that are under construction.
+By default, these scenarios will be excluded when you run cucumber. You can run these by
+including `-t @wip`:
  
 ```sh
 $ cucumber -t @wip
 $ cucumber -t @wip -t @calculator
 ```
+Once the scenario or feature works, you should remove the `@wip` tag so
+that these will be run by default.
+
 ## Additional Tools
 The following tools are not required but are recommended.
 

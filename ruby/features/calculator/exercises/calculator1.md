@@ -6,5 +6,5 @@ importantly violates DRY.
 Instead, we can use a `Scenario Outline` and create an `Examples` table
 with the data values.
 
-Update the `Add two numbers (using a scenario outline)` scenario 
-by removing the `@wip` tag and get it to work.
+Get the `Add two numbers (using a scenario outline)` scenario working then
+remove the `@wip` tag.
