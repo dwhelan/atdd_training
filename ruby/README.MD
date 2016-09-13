@@ -1,6 +1,6 @@
 ﻿# Ruby
 
-Training exercises and katas in ruby. The exercises were written in Ruby 2.3.1 but should work with Ruby 2.0 or later.
+ATDD training exercises in ruby. The exercises were written in Ruby 2.3.1 but should work with Ruby 2.0 or later.
 
 Acceptance tests use [Cucumber](https://cucumber.io/) with
 [RSpec](http://rspec.info/).
