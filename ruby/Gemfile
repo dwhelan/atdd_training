@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'chromedriver-helper'
+gem 'cucumber'
+gem 'guard'
+gem 'guard-cucumber'
+gem 'page-object'
+gem 'phantomjs'
+gem 'pry-byebug'
+gem 'rspec'

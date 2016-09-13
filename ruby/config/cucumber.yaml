@@ -1,0 +1,12 @@
+default:     --tags ~@ignore -p chrome -p watir
+
+phantomjs:   BROWSER=phantomjs --tags @phantomjs,@browser
+chrome:      BROWSER=chrome    --tags @chrome,@browser
+firefox:     BROWSER=firefox   --tags @firefox,@browser
+ie:          BROWSER=ie        --tags @ie,@browser
+safari:      BROWSER=safari    --tags @safari,@browser
+
+watir:       DRIVER=watir    --tags ~@selenium
+selenium:    DRIVER=selenium --tags ~@watir
+
+html_report: --format progress --format html --out=features_report.html
