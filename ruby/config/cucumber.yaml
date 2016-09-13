@@ -9,4 +9,4 @@ safari:      BROWSER=safari    --tags @safari,@any_browser,@calculator
 watir:       DRIVER=watir    --tags ~@selenium
 selenium:    DRIVER=selenium --tags ~@watir
 
-html_report: --format progress --format html --out=features_report.html
+html_report: --tags ~@wip -p default --format progress --format html --out=features_report.html
