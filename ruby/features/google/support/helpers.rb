@@ -25,7 +25,7 @@ module Helpers
   end
 
   def browser
-    @browser
+    @any_browser
   end
 
   def page_class_from_name(name)

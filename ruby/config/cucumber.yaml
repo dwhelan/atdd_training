@@ -1,13 +1,10 @@
-default:     --tags ~@ignore --tags ~@wip
-
-# Uncomment for working on google features
 default:     --tags ~@ignore --tags ~@wip -p chrome -p watir
 
-phantomjs:   BROWSER=phantomjs --tags @phantomjs,@browser
-chrome:      BROWSER=chrome    --tags @chrome,@browser
-firefox:     BROWSER=firefox   --tags @firefox,@browser
-ie:          BROWSER=ie        --tags @ie,@browser
-safari:      BROWSER=safari    --tags @safari,@browser
+phantomjs:   BROWSER=phantomjs --tags @phantomjs,@any_browser,@calculator
+chrome:      BROWSER=chrome    --tags @chrome,@any_browser,@calculator
+firefox:     BROWSER=firefox   --tags @firefox,@any_browser,@calculator
+ie:          BROWSER=ie        --tags @ie,@any_browser,@calculator
+safari:      BROWSER=safari    --tags @safari,@any_browser,@calculator
 
 watir:       DRIVER=watir    --tags ~@selenium
 selenium:    DRIVER=selenium --tags ~@watir

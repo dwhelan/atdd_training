@@ -22,11 +22,11 @@ $ cucumber
 ```
 The above will execute **all** the features.
  
-If you are working on the `calculator` features you can exclude
-the `web` tagged features with the `-t ~@web` option:
+If you are working on the `calculator` you can focus on
+just those features with the `-t @calculator` option:
  
 ```sh
-$ cucumber -t ~@web
+$ cucumber -t @calculator
 ```
  
 This will prevent the browser from popping up and your features will
