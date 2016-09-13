@@ -38,7 +38,15 @@ for more command line options or use the command line help:
 ```sh
 $ cucumber -h
 ```
+## Handling Work In Progress
+A cucumber convention is to use a `@wip` tag to mark scenarios that are under construction.
+By default, these scenarios will excluded when you run cucumber. You can run these by
+including `-t @wip`
  
+```sh
+$ cucumber -t @wip
+$ cucumber -t @wip -t @calculator
+```
 ## Additional Tools
 The following tools are not required but are recommended.
 

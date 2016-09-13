@@ -1,33 +1,28 @@
 @calculator
-Feature:
-  When I go to the Google search page, and search for an item,
-  I expect to see some reference to that item in the result summary.
+Feature: Adding numbers
+  As a math nerd
+  I would like the calculator to add numbers
+  So that I can practice arithmetic in my head and compare with the correct result
 
   Scenario: Add two numbers
     Given I have a new calculator
-    When I add "50" and "70"
-    Then the result should be "120"
-
-
-  Scenario Outline: Add two numbers (using a scenario outline)
-    Given I have a new calculator
-    When I add "<first>" and "<second>"
-    Then the result should be "<expected>"
-
-    Examples:
-      |first |second |expected|
-      |50    |70     |120     |
-      |1     |-1     |0       |
+    When I add "40" and "2"
+    Then the result should be "42"
 
   @wip
-  Scenario Outline: Add multiple numbers
+  Scenario Outline: Add two numbers (using a scenario outline)
     Given I have a new calculator
-    When I add <numbers>
-    Then the result should be <expected>
-    Examples:
-      |numbers|expected |
-      |1,2    |3        |
-      |1,2,3  |6        |
+    When ...
+
+  @wip
+  Scenario: Add two numbers (split up the add step into two separate steps)
+    Given I have a new calculator
+    When ...
+    Then the result should be "42"
+
+  @wip
+  Scenario: Add numbers in succession
+    When ...
 
 
 
