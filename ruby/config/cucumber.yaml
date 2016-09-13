@@ -1,4 +1,7 @@
-default:     --tags ~@ignore -p chrome -p watir
+default:     --tags ~@ignore --tags ~@wip
+
+# Uncomment for working on google features
+default:     --tags ~@ignore --tags ~@wip -p chrome -p watir
 
 phantomjs:   BROWSER=phantomjs --tags @phantomjs,@browser
 chrome:      BROWSER=chrome    --tags @chrome,@browser

@@ -1,4 +1,4 @@
-@home @browser
+@web @browser
 Feature:
   When I go to the Google search page, and search for an item,
   I expect to see some reference to that item in the result summary.

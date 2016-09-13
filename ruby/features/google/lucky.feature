@@ -1,4 +1,4 @@
-@home @browser
+@web @browser
 Feature:
 When I go to the Google search page, I expect to search luckily
 

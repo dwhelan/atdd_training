@@ -17,11 +17,27 @@ $ bundle install
 
 The 'cukes', or cucumber features, can be run from the command line:
  
- ```sh
- $ cucumber
- ```
+```sh
+$ cucumber
+```
+The above will execute **all** the features.
  
- See the [cucumber wiki](https://github.com/cucumber/cucumber/wiki/Running-Features) for command line options.
+If you are working on the `calculator` features you can exclude
+the `web` tagged features with the `-t ~@web` option:
+ 
+```sh
+$ cucumber -t ~@web
+```
+ 
+This will prevent the browser from popping up and your features will
+execute very quickly.
+ 
+See the [cucumber wiki](https://github.com/cucumber/cucumber/wiki/Running-Features)
+for more command line options or use the command line help:
+ 
+```sh
+$ cucumber -h
+```
  
 ## Additional Tools
 The following tools are not required but are recommended.
@@ -33,5 +49,5 @@ If you don't have RubyMine installed you can download a 30 day trial version [he
 #### Running tests from the IDE
 Within RubyMine you can right click on any `.feature` file and select `Run...`.
 #### Markdown support
-To view the kata descriptions it is recommended that you install the 'Markdown Support' RubyMine plugin.
-Refer to the [Enabling and Disabling Plugins](https://www.jetbrains.com/help/webstorm/2016.2/enabling-and-disabling-plugins.html) if you need help with this.
+To view the kata descriptions it is recommended that you install the **Markdown support** RubyMine plugin.
+Refer to [Enabling and Disabling Plugins](https://www.jetbrains.com/help/webstorm/2016.2/enabling-and-disabling-plugins.html) if you need help with this.

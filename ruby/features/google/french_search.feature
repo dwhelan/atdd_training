@@ -1,4 +1,4 @@
-@home @chrome
+@web @chrome
 Feature:
   When I go to the Google search page I should be able to search in French.
 
