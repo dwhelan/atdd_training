@@ -77,3 +77,6 @@ Within RubyMine you can right click on any `.feature` file and select `Run...`.
 #### Markdown support
 To view the kata descriptions it is recommended that you install the **Markdown support** RubyMine plugin.
 Refer to [Enabling and Disabling Plugins](https://www.jetbrains.com/help/webstorm/2016.2/enabling-and-disabling-plugins.html) if you need help with this.
+
+# To do
+* getting web cukes to work with ruby 1.9
