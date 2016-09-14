@@ -1,12 +1,12 @@
-default:     --tags ~@ignore -p chrome -p watir
+default:     -p chrome -p watir
 
-phantomjs:   BROWSER=phantomjs --tags @phantomjs,@any_browser,@calculator
-chrome:      BROWSER=chrome    --tags @chrome,@any_browser,@calculator
-firefox:     BROWSER=firefox   --tags @firefox,@any_browser,@calculator
-ie:          BROWSER=ie        --tags @ie,@any_browser,@calculator
-safari:      BROWSER=safari    --tags @safari,@any_browser,@calculator
+phantomjs:   BROWSER=phantomjs -t @phantomjs,@any_browser,@calculator
+chrome:      BROWSER=chrome    -t @chrome,@any_browser,@calculator
+firefox:     BROWSER=firefox   -t @firefox,@any_browser,@calculator
+ie:          BROWSER=ie        -t @ie,@any_browser,@calculator
+safari:      BROWSER=safari    -t @safari,@any_browser,@calculator
 
-watir:       DRIVER=watir    --tags ~@selenium
-selenium:    DRIVER=selenium --tags ~@watir
+watir:       DRIVER=watir    -t ~@selenium
+selenium:    DRIVER=selenium -t ~@watir
 
-html_report: --tags ~@wip -p default --format progress --format html --out=features_report.html
+html_report: -t ~@wip -p default --format progress --format html --out=features_report.html

@@ -39,17 +39,32 @@ for more command line options or use the command line help:
 $ cucumber -h
 ```
 ## Handling Work In Progress
+By default the cucumber set up will run all the `cukes`.
 A cucumber convention is to use a `@wip` tag to mark scenarios or features that are under construction.
-By default, these scenarios will be excluded when you run cucumber. You can run these by
-including `-t @wip`:
- 
+
+To run all `cukes` that **are** under construction:
 ```sh
 $ cucumber -t @wip
+```
+
+To run all `cukes` that **are not** under construction:
+```sh
+$ cucumber -t ~@wip
+```
+
+To run the calculator `cukes` that **are** under construction:
+```sh
 $ cucumber -t @wip -t @calculator
 ```
-Once the scenario or feature works, you should remove the `@wip` tag so
-that these will be run by default.
 
+To run the web `cukes` that **are** under construction:
+```sh
+$ cucumber -t @wip -t @web
+```
+
+Once the scenario or feature works, you should remove the `@wip` tag.
+
+If you want to run 
 ## Additional Tools
 The following tools are not required but are recommended.
 
