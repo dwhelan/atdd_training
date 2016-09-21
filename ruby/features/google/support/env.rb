@@ -1,4 +1,4 @@
-#require 'pry-byebug'
+require 'pry-byebug' if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0.0')
 require 'page-object'
 require 'rspec'
 
