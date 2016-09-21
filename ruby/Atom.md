@@ -22,5 +22,8 @@ Cucumber command: Run features file
 cucumber --color {relative_path} -t ~@wip
 ```
 
+## Autocomplete
+Installing the `gherkin-autocomplete` package provides some autocomplete support when adding new steps to scenarios.
+
 ## Viewing markdown files
-Viewing mark down is built-in. All you need to do is enter `ctrl+shift+M`.
+Viewing mark down is built-in. All you need to do is enter `ctrl-shift-M`.
