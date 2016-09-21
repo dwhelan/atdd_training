@@ -1,12 +1,23 @@
-﻿# Ruby
+﻿[![Build Status](https://travis-ci.org/dwhelan/atdd_training.png?branch=master)](https://travis-ci.org/dwhelan/atdd_training)
 
-ATDD training exercises in ruby. The exercises were written in Ruby 2.3.1 but should work with Ruby 2.0 or later.
+# Ruby
+ATDD training exercises in ruby.
 
 Acceptance tests use [Cucumber](https://cucumber.io/) with
-[RSpec](http://rspec.info/).
+[RSpec](http://rspec.info/). Web tests use the [page-object](https://github.com/cheezy/page-object) gem.
 
 ## Getting started
-You will need a Ruby installed. See the [Ruby installation page](https://www.ruby-lang.org/en/documentation/installation/)for installation instructions.
+You will need a Ruby installed. The following ruby versions are supported:
+  - 1.9.3
+  - 2.0.0
+  - 2.1.0
+  - 2.2.0  
+  - 2.2.1
+  - 2.2.2
+  - 2.2.3
+  - 2.3.1
+
+See the [Ruby installation page](https://www.ruby-lang.org/en/documentation/installation/) for installation instructions.
 
 Update dependencies using `bundler`:
 
@@ -16,25 +27,25 @@ $ bundle install
 ```
 
 The 'cukes', or cucumber features, can be run from the command line:
- 
+
 ```sh
 $ cucumber
 ```
 The above will execute **all** the features.
- 
+
 If you are working on the `calculator` you can focus on
 just those features with the `-t @calculator` option:
- 
+
 ```sh
 $ cucumber -t @calculator
 ```
- 
+
 This will prevent the browser from popping up and your features will
 execute very quickly.
- 
+
 See the [cucumber wiki](https://github.com/cucumber/cucumber/wiki/Running-Features)
 for more command line options or use the command line help:
- 
+
 ```sh
 $ cucumber -h
 ```
@@ -64,19 +75,7 @@ $ cucumber -t @wip -t @web
 
 Once the scenario or feature works, you should remove the `@wip` tag.
 
-If you want to run 
-## Additional Tools
-The following tools are not required but are recommended.
-
-### RubyMine
-[RubyMine](https://www.jetbrains.com/ruby/) is recommended due to its excellent refactoring and test support.
-If you don't have RubyMine installed you can download a 30 day trial version [here](https://www.jetbrains.com/ruby/download/).
-
-#### Running tests from the IDE
-Within RubyMine you can right click on any `.feature` file and select `Run...`.
-#### Markdown support
-To view the kata descriptions it is recommended that you install the **Markdown support** RubyMine plugin.
-Refer to [Enabling and Disabling Plugins](https://www.jetbrains.com/help/webstorm/2016.2/enabling-and-disabling-plugins.html) if you need help with this.
-
-# To do
-* getting web cukes to work with ruby 1.9
+# IDE suggestions
+For some tips on using some popular IDEs you might to check out:
+* [RubyMine](RubyMine.md)
+* [Atom](Atom.md)

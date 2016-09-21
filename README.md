@@ -1,5 +1,3 @@
-Ruby: [![Build Status](https://travis-ci.org/dwhelan/atdd_training.png?branch=master)](https://travis-ci.org/dwhelan/atdd_training)
-
 # ATDD Training
 A set of training exerices for learning ATDD.
 
@@ -20,12 +18,3 @@ Follow the instructions in the `README.MD` file in the language folder of your c
 
  * [C#](cs)
  * [Ruby](ruby)
-
-### Ruby versions supported
-  - 1.9.3
-  - 2.0.0
-  - 2.1.0
-  - 2.2.0  
-  - 2.2.1
-  - 2.2.2
-  - 2.2.3

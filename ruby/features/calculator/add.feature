@@ -23,6 +23,3 @@ Feature: Adding numbers
   @wip
   Scenario: Add numbers in succession
     When ...
-
-
-
