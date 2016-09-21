@@ -9,6 +9,10 @@ gem 'phantomjs'
 gem 'pry-byebug'
 gem 'rspec'
 
+group :test do
+  gem 'rake'
+end
+
 # The following are required to deal with version conflict
 gem 'ruby_dep', '~> 1.3.0' if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.2.5') && Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0.0')
 gem 'listen', '~> 3.0.8'

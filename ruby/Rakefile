@@ -1,0 +1,14 @@
+require 'cucumber'
+require 'cucumber/rake/task'
+
+namespace :features do
+  Cucumber::Rake::Task.new(:phantomjs) do |task|
+    task.cucumber_opts = 'features --format pretty -q -t ~@wip -p phantomjs'
+  end
+
+  Cucumber::Rake::Task.new(:default) do |task|
+    task.cucumber_opts = 'features --format pretty -q -t ~@wip'
+  end
+end
+
+task default: [:'features:phantomjs']

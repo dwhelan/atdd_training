@@ -1,4 +1,4 @@
-default:     -p chrome -p watir
+default:     -p phantomjs -p watir
 
 phantomjs:   BROWSER=phantomjs -t @phantomjs,@any_browser,@calculator
 chrome:      BROWSER=chrome    -t @chrome,@any_browser,@calculator

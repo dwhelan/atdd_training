@@ -8,7 +8,14 @@ module Helpers
         # '--webdriver-logfile=phantomjs.log',
         # --webdriver-loglevel=INFO',       # WebDriver Logging Level: (supported: 'ERROR', 'WARN', 'INFO', 'DEBUG') (default 'INFO') (NOTE: needs '--webdriver')
     ]
+
     options = {}
+
+    if browser == :phantomjs
+      # Set user agent to chrome to get reasonable responses from web sites
+      capabilities = Selenium::WebDriver::Remote::Capabilities.phantomjs('phantomjs.page.settings.userAgent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36')
+      options[:desired_capabilities] = capabilities
+    end
 
     case driver_name
     when 'selenium'

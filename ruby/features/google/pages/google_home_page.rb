@@ -6,7 +6,7 @@ class GoogleHomePage
 
   url '/'
 
-  text_field 'search_box', id: 'lst-ib'
+  text_field 'search_box', name: 'q'
   button 'search_button',  value: 'Search'
   button 'french_search_button',  value: 'Rechercher'
   button 'lucky_button',  value: "I'm Feeling Lucky"
