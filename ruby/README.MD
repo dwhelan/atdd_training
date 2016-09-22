@@ -31,7 +31,7 @@ See the [Ruby installation page](https://www.ruby-lang.org/en/documentation/inst
 
 ***Note***: If you are on El Capitain and you don't have `rvm` or `rbenv` installed then subsequent install steps may complain aboout not being able to write to the `/usr/local` folder. To fix this edit your `~/.gemrc` file and include:
 ```
-gem: --install-dir /usr/local/bin
+gem: --user-install -n/usr/local/bin
 ```
 ## Update dependencies
 Run the following:
