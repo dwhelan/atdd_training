@@ -34,11 +34,12 @@ See the [Ruby installation page](https://www.ruby-lang.org/en/documentation/inst
 gem: --user-install -n/usr/local/bin
 ```
 ## Update dependencies
-Run the following:
 
-Note: chromedriver might fail to download.  2.24 is "current" version, but brew update only finds 2.23. There's an updated formula [here](https://github.com/Homebrew/homebrew-core/blob/303660134f72cffaef94f87abfb6bfeedccc0e1c/Formula/chromedriver.rb)  
+Warning: chromedriver might fail to download.  2.24 is "current" version, but brew update only finds 2.23. There's an updated formula [here](https://github.com/Homebrew/homebrew-core/blob/303660134f72cffaef94f87abfb6bfeedccc0e1c/Formula/chromedriver.rb)  
 
 One can use `EDITOR=<editorOfChoice> brew edit chromedriver` to manually update version, URI and hash for that formula.  
+
+Run the following:
 
 ```
 brew install chromedriver 
