@@ -31,13 +31,18 @@ See the [Ruby installation page](https://www.ruby-lang.org/en/documentation/inst
 
 ***Note***: If you are on El Capitain and you don't have `rvm` or `rbenv` installed then subsequent install steps may complain aboout not being able to write to the `/usr/local` folder. To fix this edit your `~/.gemrc` file and include:
 ```
-gem: -n/usr/local/bin
+gem: --user-install -n/usr/local/bin
 ```
 ## Update dependencies
+
+Warning: chromedriver might fail to download.  2.24 is "current" version, but brew update only finds 2.23. There's an updated formula [here](https://github.com/Homebrew/homebrew-core/blob/303660134f72cffaef94f87abfb6bfeedccc0e1c/Formula/chromedriver.rb)  
+
+One can use `EDITOR=<editorOfChoice> brew edit chromedriver` to manually update version, URI and hash for that formula.  
+
 Run the following:
 
 ```
-brew install chromedriver
+brew install chromedriver 
 brew install phantomjs
 
 gem install bundler
