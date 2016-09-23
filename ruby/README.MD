@@ -42,6 +42,7 @@ You can check if you have a ruby installed and its version by entering:
 ruby -v
 ```
 You should something like:
+
 ```
 ruby 1.9.3p551 (2014-11-13 revision 48407) [x86_64-darwin15.6.0]
 ```
@@ -84,12 +85,9 @@ gem install cucumber
 `chromedriver` may fail to download.
 `2.24` is the *current* version, but brew update may only find `2.23`.
 
-You can fix that locally by changing the brew formula:
-```
-brew edit chromedriver
-```
-Update the `url`, `version` and `sha256` for the formula
-by replacing the existing lines in the file for those settings with:
+You can fix that locally by changing the brew formula
+by manually update the `url`, `version` and `sha256` for the formula.
+Just replace the existing lines in the file for those settings with:
   
 ```
   url "https://chromedriver.storage.googleapis.com/2.24/chromedriver_mac64.zip"
@@ -104,8 +102,7 @@ export EDITOR                      # => may be necessary depending what shell yo
 brew edit chromedriver
 ```
 
-See here for the full formula
-[here](https://github.com/Homebrew/homebrew-core/blob/303660134f72cffaef94f87abfb6bfeedccc0e1c/Formula/chromedriver.rb)  
+You can see the full formula [here](https://github.com/Homebrew/homebrew-core/blob/303660134f72cffaef94f87abfb6bfeedccc0e1c/Formula/chromedriver.rb).
 
 ## Update gems
 Update local gems using `bundler`:
