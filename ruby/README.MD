@@ -27,6 +27,8 @@ You will need a Ruby installed. The following ruby versions are supported:
   - 2.2.3
   - 2.3.1
 
+Other rubies will likely work but have not been tested.
+
 See the [Ruby installation page](https://www.ruby-lang.org/en/documentation/installation/) for additional installation instructions.
 
 ***Note***: If you are on El Capitain and you don't have `rvm` or `rbenv` installed then subsequent install steps may complain aboout not being able to write to the `/usr/local` folder. To fix this edit your `~/.gemrc` file and include:
