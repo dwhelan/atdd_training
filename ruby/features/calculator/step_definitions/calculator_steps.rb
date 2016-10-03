@@ -2,12 +2,16 @@ Given /^I have a new calculator$/ do
   @calculator = Calculator.new
 end
 
-When /^I add "(.*)" and "(.*)"$/ do |first, second|
-  @calculator.enter(first);
-  @calculator.enter(second);
+When(/^I enter "([^"]*)"$/) do |arg1|
+  @calculator.enter(arg1);
+end
+
+When(/^I add the numbers$/) do
   @calculator.add
 end
 
 Then /^the result should be "(.*)"$/ do |expected|
   expect(@calculator.result).to eq expected
 end
+
+

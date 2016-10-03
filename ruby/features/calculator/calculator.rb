@@ -10,7 +10,7 @@ class Calculator
   end
 
   def add
-    self.result = (entries.pop + entries.pop).to_s
+    self.result = entries.reduce(:+).to_s
   end
 
   attr_reader :result
