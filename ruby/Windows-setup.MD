@@ -81,7 +81,7 @@ Copy all the files in the `setup\x86\bin` (32 bit) or `setup\x64\bin` (64 bit) f
 
 ## Installing dependencies
 <a name="installing-dependencies"></a>
-Run the following:
+At the command prompt run the following:
 ```
 gem update --system
 gem install --no-ri --no-rdoc rspec
@@ -103,4 +103,4 @@ bundle install
 ```
 
 ## Run the tests
-Once you have successfully installed ruby and cucumber you are ready to [run the tests](./Running-tests.md).
+Once you have successfully installed ruby and cucumber you are ready to [run the tests](./Running-tests.MD).

@@ -104,4 +104,4 @@ bundle install
 ```
 
 ## Run the tests
-Once you have successfully installed ruby and cucumber you are ready to [run the tests](./Running-tests.md).
+Once you have successfully installed ruby and cucumber you are ready to [run the tests](./Running-tests.MD).
