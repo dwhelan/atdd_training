@@ -7,8 +7,8 @@ Acceptance tests use [Cucumber](https://cucumber.io/) with
 [RSpec](http://rspec.info/). Web tests use the [page-object](https://github.com/cheezy/page-object) gem.
 
 Follow the install instructions for your operating system:
-* [Mac](./Mac-setup.md)
-* [Windows](./Windows-setup.md)
+* [Mac](Mac-setup.MD)
+* [Windows](Windows-setup.MD)
 
 # IDE suggestions
 For some tips on using some popular IDEs you might to check out:
