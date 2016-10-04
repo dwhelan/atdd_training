@@ -1,6 +1,6 @@
 ﻿# Getting started on Windows
 ## Download the Windows installation files from dropbox
-Go to the [ATDD dropbox folder](http://bit.ly/atdd-setup-zip) and click the `Download` button. You should have a `Setup.zip` file in your downloads folder. Unzip the `Setup.zip` file.
+Go to the [ATDD dropbox folder](http://bit.ly/atdd_setup) and click the `Download` button. You should have a `Setup.zip` file in your downloads folder. Unzip the `Setup.zip` file.
 
 ## Windows 32 Bit or 64 bit?
 Determine whether your system is 32 bit or 64 bit (`Control Panel\System and Security\System` and look for System Type).
@@ -35,7 +35,7 @@ If your version matches one of the versions listed above then you are all set an
 If you don't have a supported Ruby installed, the following instructions will get you up and going with `Ruby 2.2.3`.
 
 ### Install Ruby
-Run the downloaded `rubyinstaller-2.2.3.exe` file and accept the defaults until you see this screen and do the following:
+Run the downloaded `rubyinstaller-2.2.3.exe` (32 bit) or `rubyinstaller-2.2.3-64.exe` (64 bit) and accept the defaults until you see this screen:
 
  ![Ruby installation](./images/windows-ruby-setup.png)]
 
@@ -43,7 +43,6 @@ Run the downloaded `rubyinstaller-2.2.3.exe` file and accept the defaults until 
 * Check ‘Add Ruby executables to your PATH’
 * Check ‘Associate .rb and .rbw files with this Ruby installation’
 * Click `Install`
-
 
 You can now check your ruby version by entering the following at a command prompt:
 
@@ -81,7 +80,7 @@ Copy all the files in the `setup\x86\bin` (32 bit) or `setup\x64\bin` (64 bit) f
 
 ## Installing dependencies
 <a name="installing-dependencies"></a>
-At the command prompt run the following:
+At the command prompt run the following (you can copy and paste if you prefer):
 ```
 gem update --system
 gem install --no-ri --no-rdoc rspec
@@ -100,6 +99,12 @@ cd <local folder>\atdd_training\ruby
 Update local gems using `bundler`:
 ```sh
 bundle install
+```
+
+To get the `cucumber` colour console output you will need to run `ansicon` when you first open a command prompt:
+
+```sh
+ansicon
 ```
 
 ## Run the tests
