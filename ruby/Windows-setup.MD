@@ -30,7 +30,7 @@ You should something like:
 ruby 2.2.3p173 (2015-08-18 revision 51636) [i386-mingw32]
 ```
 
-If your version matches one of the versions listed above then you are all set and you can jump to `Installing dependencies`.
+If your version matches one of the versions listed above then you are all set and you can jump to [Installing dependencies](#installing-dependencies).
 
 If you don't have a supported Ruby installed, the following instructions will get you up and going with `Ruby 2.2.3`.
 
@@ -79,7 +79,8 @@ The results should look something like:
 ## Copy ruby binaries
 Copy all the files in the `setup\x86\bin` (32 bit) or `setup\x64\bin` (64 bit) folder to the `C:\Ruby22\bin` folder.
 
-## Install dependencies
+## Installing dependencies
+<a name="installing-dependencies"></a>
 Run the following:
 ```
 gem update --system
