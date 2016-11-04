@@ -79,25 +79,6 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check if we can start with home page and click on terms of service")]
-        public virtual void CheckIfWeCanStartWithHomePageAndClickOnTermsOfService()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check if we can start with home page and click on terms of service", ((string[])(null)));
-#line 10
-this.ScenarioSetup(scenarioInfo);
-#line 11
- testRunner.Given("I browse to the \"Google Home Page\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 12
- testRunner.When("I click on Privacy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
- testRunner.And("I click on Overview", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 14
- testRunner.Then("I should see \"Learn more about privacy and security\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
     }
 }
 #pragma warning restore

@@ -101,9 +101,7 @@ this.FeatureBackground();
 #line 14
  testRunner.When("I search for \"Coypu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
- testRunner.Then("the search entry should be \"Coypu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 16
- testRunner.And("I should see \"semiaquatic rodent\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("I should see \"semiaquatic rodent\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -113,13 +111,13 @@ this.FeatureBackground();
         public virtual void ViewPrivacyPolicy()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View privacy policy", ((string[])(null)));
-#line 18
+#line 17
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
+#line 18
+ testRunner.When("I select Privacy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
- testRunner.When("I click on Privacy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 20
  testRunner.Then("I should be on the \"Privacy Policy Page\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -130,13 +128,13 @@ this.FeatureBackground();
         public virtual void IMFeelingLuckySearch()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I\'m feeling lucky search", ((string[])(null)));
-#line 22
+#line 21
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
+#line 22
+ testRunner.When("I select \"I\'m Feeling Lucky\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
- testRunner.When("I click the \"I\'m Feeling Lucky\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 24
  testRunner.Then("I should see \"Doodles\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

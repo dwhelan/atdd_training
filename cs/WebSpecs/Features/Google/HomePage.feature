@@ -12,13 +12,12 @@ Scenario: The open the box experience should be warm and inviting
 		
 Scenario: Basic search
 	When I search for "Coypu"
-	Then the search entry should be "Coypu"
-	And I should see "semiaquatic rodent"
+	Then I should see "semiaquatic rodent"
 
 Scenario: View privacy policy
-	When I click on Privacy
+	When I select Privacy
 	Then I should be on the "Privacy Policy Page"
 
 Scenario: I'm feeling lucky search
-	When I click the "I'm Feeling Lucky" button
+	When I select "I'm Feeling Lucky"
 	Then I should see "Doodles"

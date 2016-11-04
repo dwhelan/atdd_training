@@ -7,9 +7,9 @@ namespace WebSpecs.Pages.Google
 {
     public class HomePage : BasePage
     {
-        public ElementScope SearchText { get { return Browser.FindField("q"); } }
-        public ElementScope ImFeelingLucky { get { return Browser.FindButton("I'm Feeling Lucky"); } }
-        public ElementScope Privacy { get { return Browser.FindLink("Privacy"); } }
+        public ElementScope SearchText     => Browser.FindField("q");
+        public ElementScope ImFeelingLucky => Browser.FindButton("I'm Feeling Lucky");
+        public ElementScope Privacy        => Browser.FindLink("Privacy");
 
         public HomePage(PageSession browser) : base(browser, "/")
         {
@@ -19,11 +19,5 @@ namespace WebSpecs.Pages.Google
         {
             Browser.FillIn("q", new Options { Timeout = TimeSpan.FromSeconds(10) }).With(text + Keys.Return );  
         }
-
-        //public T Click<T>(ElementScope element) where T : Page
-        //{
-        //    element.Click();
-        //    return (T) PageFactory.Instance.Create(typeof(T), Browser);
-        //}
     }
 }

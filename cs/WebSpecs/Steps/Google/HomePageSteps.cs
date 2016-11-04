@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using BoDi;
-using Coypu;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using WebSpecs.Pages.Google;
@@ -19,11 +15,16 @@ namespace WebSpecs.Steps.Google
         {
         }
 
-        [When(@"I click on Privacy")]
+        [When(@"I select Privacy")]
         public void WhenIClickOnPrivacy()
         {
             HomePage.Privacy.Click();
-            Page = new PrivacyPolicyPage(Browser);
+        }
+
+        [When(@"I select ""I'm Feeling Lucky""")]
+        public void WhenISelectImFeelingLucky()
+        {
+            HomePage.ImFeelingLucky.Click();
         }
 
         [When(@"I search for ""(.*)""")]
@@ -31,25 +32,5 @@ namespace WebSpecs.Steps.Google
         {
             HomePage.Search(text);
         }
-
-        [Then(@"the search entry should be ""(.*)""")]
-        public void ThenTheSearchEntryShouldBe(string text)
-        {
-            Assert.That(HomePage.SearchText.Value, Is.EqualTo(text));
-        }
     }
-
-    //public static class ExtensionOperation
-    //{
-    //    public static SessionConfiguration Configuration(this BrowserSession browser)
-    //    {
-    //        return browser.SessionConfiguration;
-    //    }
-
-    //    public static void Click<T>(this ElementScope element) where T : Page
-    //    {
-    //        element.Click();
-    //        PageFactory.Instance.Create(typeof(T), (PageBrowserSession) element.Browser);
-    //    }
-    //}
 }
